@@ -1,6 +1,6 @@
 import { motion } from 'motion/react';
 import SectionTitle from './SectionTitle';
-import { Mail, Phone, MapPin, Send, Github, Linkedin, Twitter } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, Github, Linkedin, Twitter, Instagram, Youtube } from 'lucide-react';
 import { useState, FormEvent } from 'react';
 import Swal from 'sweetalert2';
 
@@ -32,9 +32,9 @@ const Contact = () => {
   };
 
   const contactInfo = [
-    { icon: <Mail className="text-primary" />, label: 'Email', value: 'contact@bagusbatra.com', link: 'mailto:contact@bagusbatra.com' },
-    { icon: <Phone className="text-accent" />, label: 'WhatsApp', value: '+62 812 3456 7890', link: 'https://wa.me/6281234567890' },
-    { icon: <MapPin className="text-red-500" />, label: 'Location', value: 'Jakarta, Indonesia', link: '#' },
+    { icon: <Mail className="text-primary" />, label: 'Email', value: 'bagusbatr@gmail.com', link: 'mailto:bagusbatr@gmail.com' },
+    { icon: <Phone className="text-accent" />, label: 'WhatsApp', value: '+62 882 2827 2679', link: 'https://wa.me/6288228272679' },
+    { icon: <MapPin className="text-red-500" />, label: 'Location', value: 'Sidoarjo, Jawa Timur', link: 'https://maps.app.goo.gl/Z55msXbScmEzx5Gp7' },
   ];
 
   return (
@@ -69,7 +69,7 @@ const Contact = () => {
             <div className="space-y-6">
               <h4 className="text-xl font-bold">Follow Me</h4>
               <div className="flex gap-4">
-                {[Github, Linkedin, Twitter].map((Icon, i) => (
+                {[Github, Linkedin, Instagram, Youtube].map((Icon, i) => (
                   <motion.a
                     key={i}
                     href="#"
@@ -99,7 +99,7 @@ const Contact = () => {
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-4 focus:outline-none focus:border-primary transition-all"
-                    placeholder="John Doe"
+                    placeholder="Bagus Batra"
                   />
                 </div>
                 <div className="space-y-2">
@@ -110,7 +110,7 @@ const Contact = () => {
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-4 focus:outline-none focus:border-primary transition-all"
-                    placeholder="john@example.com"
+                    placeholder="bagus@example.com"
                   />
                 </div>
               </div>

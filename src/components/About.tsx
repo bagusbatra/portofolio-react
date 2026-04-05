@@ -3,8 +3,8 @@ import { Download, CheckCircle2, Award, Briefcase, GraduationCap } from 'lucide-
 import SectionTitle from './SectionTitle';
 
 const About = () => {
-  const skills = ['React', 'TypeScript', 'Tailwind CSS', 'Node.js', 'PHP', 'MySQL', 'Framer Motion', 'Git'];
-  const tools = ['VS Code', 'Figma', 'Postman', 'Docker', 'Vercel', 'Netlify'];
+  const skills = ['React', 'TypeScript', 'Tailwind CSS', 'Node.js', 'MySQL', 'HTML','CSS','Javascript', 'PHP','MySQL', 'Git', 'Python'];
+  const tools = ['VS Code', 'Figma', 'Postman', 'Canva', 'Capcut', 'MS Office'];
 
   return (
     <section id="about" className="section-padding bg-secondary/50">
@@ -20,18 +20,20 @@ const About = () => {
               className="space-y-6 text-white/70 text-lg leading-relaxed"
             >
               <p>
-                Hello! I'm <span className="text-white font-bold">Bagus Batra</span>, a dedicated Web Developer based in Indonesia. I specialize in building robust and scalable web applications that deliver exceptional user experiences.
+                Hello! I'm <span className="text-white font-bold">Bagus Batra</span>, a junior web developer from Indonesia who is passionate about building modern, efficient, and well-structured web applications. I focus on delivering high-quality results with a strong commitment to performance, clarity, and user experience.
               </p>
+
               <p>
-                My journey in tech started with a curiosity for how things work on the internet, which led me to pursue a degree in Computer Science. Since then, I've been constantly learning and evolving with the ever-changing landscape of web technologies.
+                I continuously refine my skills by combining solid development fundamentals with AI-assisted workflows, allowing me to work more efficiently while maintaining full control over the logic, structure, and quality of every project I build.
               </p>
+
               <p>
-                I thrive on solving complex problems and turning creative ideas into functional reality. Whether it's a sleek frontend interface or a complex backend architecture, I approach every project with the same level of enthusiasm and attention to detail.
+                I value precision, clean architecture, and timely delivery. Every project I take on is approached with a problem-solving mindset, ensuring that solutions are not only functional, but also optimized, scalable, and professionally executed.
               </p>
             </motion.div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div className="space-y-4">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+              <div className="space-y-4 md:col-span-2">
                 <h4 className="text-xl font-bold flex items-center gap-2">
                   <Award className="text-primary" size={24} /> Skills
                 </h4>
@@ -43,7 +45,7 @@ const About = () => {
                   ))}
                 </div>
               </div>
-              <div className="space-y-4">
+              <div className="space-y-4 md:col-span-1">
                 <h4 className="text-xl font-bold flex items-center gap-2">
                   <Briefcase className="text-accent" size={24} /> Tools
                 </h4>
@@ -57,13 +59,13 @@ const About = () => {
               </div>
             </div>
 
-            <motion.button
+            {/* <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="px-8 py-4 bg-white/5 border border-white/10 rounded-2xl font-bold text-white flex items-center gap-2 hover:bg-white/10 transition-all"
             >
               <Download size={20} /> Download CV
-            </motion.button>
+            </motion.button> */}
           </div>
 
           <div className="lg:col-span-5 space-y-8">
@@ -77,21 +79,21 @@ const About = () => {
               <div className="space-y-8">
                 <div className="relative pl-8 border-l-2 border-primary/30 space-y-2">
                   <div className="absolute -left-[9px] top-0 w-4 h-4 bg-primary rounded-full shadow-lg shadow-primary/50" />
-                  <span className="text-primary text-sm font-bold">2023 - Present</span>
-                  <h5 className="text-lg font-bold">Senior Web Developer</h5>
-                  <p className="text-white/50 text-sm">Tech Solutions Inc.</p>
+                  <span className="text-primary text-sm font-bold">Jan 2025 - Present</span>
+                  <h5 className="text-lg font-bold">Web Dev & Coding Python Mentor</h5>
+                  <p className="text-white/50 text-sm">Elips Academy Surabaya</p>
                 </div>
                 <div className="relative pl-8 border-l-2 border-white/10 space-y-2">
                   <div className="absolute -left-[9px] top-0 w-4 h-4 bg-white/20 rounded-full" />
-                  <span className="text-white/40 text-sm font-bold">2021 - 2023</span>
-                  <h5 className="text-lg font-bold">Frontend Developer</h5>
-                  <p className="text-white/50 text-sm">Creative Agency</p>
+                  <span className="text-white/40 text-sm font-bold">Apr 2026 - Present</span>
+                  <h5 className="text-lg font-bold">Junior Web Developer</h5>
+                  <p className="text-white/50 text-sm">Freelance</p>
                 </div>
                 <div className="relative pl-8 border-l-2 border-white/10 space-y-2">
                   <div className="absolute -left-[9px] top-0 w-4 h-4 bg-white/20 rounded-full" />
-                  <span className="text-white/40 text-sm font-bold">2019 - 2021</span>
-                  <h5 className="text-lg font-bold">Junior Developer</h5>
-                  <p className="text-white/50 text-sm">Startup Hub</p>
+                  <span className="text-white/40 text-sm font-bold">Jun 2022 - Nov 2022</span>
+                  <h5 className="text-lg font-bold">Full Stack Developer Intern</h5>
+                  <p className="text-white/50 text-sm">PT. Otak Kanan, Graha Pena Surabaya</p>
                 </div>
               </div>
             </motion.div>

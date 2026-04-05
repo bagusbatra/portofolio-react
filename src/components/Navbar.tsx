@@ -18,8 +18,9 @@ const Navbar = () => {
 
   const navLinks = [
     { name: 'Home', path: '/' },
+    { name: 'About', path: '/About' },
     { name: 'Projects', path: '/projects' },
-    { name: 'Contact', path: '/#contact' },
+    { name: 'Contact', path: '/contact' },
     { name: 'Login', path: '/login' },
   ];
 
@@ -44,10 +45,10 @@ const Navbar = () => {
             </Link>
           ))}
           <div className="flex items-center space-x-4 ml-4 border-l border-white/10 pl-4">
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors">
+            <a href="https://github.com/bagusbatra" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors">
               <Github size={18} />
             </a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors">
+            <a href="https://linkedin.com/in/bagusbatra" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors">
               <Linkedin size={18} />
             </a>
           </div>

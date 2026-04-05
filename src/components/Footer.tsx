@@ -7,7 +7,7 @@ const Footer = () => {
         <div className="space-y-4">
           <h3 className="text-2xl font-bold gradient-text">Bagus Batra</h3>
           <p className="text-white/50 max-w-xs">
-            Building modern, interactive, and high-performance web applications with passion and precision.
+            Crafting clean, scalable, and impactful web experiences with smart technology.
           </p>
         </div>
 
@@ -17,7 +17,7 @@ const Footer = () => {
             <li><a href="/" className="hover:text-primary transition-colors">Home</a></li>
             <li><a href="/projects" className="hover:text-primary transition-colors">Projects</a></li>
             <li><a href="/#contact" className="hover:text-primary transition-colors">Contact</a></li>
-            <li><a href="/login" className="hover:text-primary transition-colors">Admin Login</a></li>
+            <li><a href="/login" className="hover:text-primary transition-colors">Login</a></li>
           </ul>
         </div>
 
@@ -38,7 +38,7 @@ const Footer = () => {
             </a>
           </div>
           <p className="text-white/50 flex items-center gap-2 pt-2">
-            <Mail size={16} /> contact@bagusbatra.com
+            <Mail size={16} /> bagusbatr@gmail.com
           </p>
         </div>
       </div>

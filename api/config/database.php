@@ -1,7 +1,7 @@
 <?php
 class Database {
     private $host = "localhost";
-    private $db_name = "portfolio_bagus_batra";
+    private $db_name = "";
     private $username = "root";
     private $password = "";
     public $conn;
