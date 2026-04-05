@@ -32,7 +32,7 @@ const Hero = () => {
               Web Developer <span className="text-primary">&</span> UI Designer
             </h2>
             <p className="text-white/50 text-lg max-w-xl mx-auto lg:mx-0">
-              Crafting high-performance, interactive web experiences with modern technologies. Let's build something extraordinary together.
+              I’m a junior web developer dedicated to crafting modern web solutions, blending technical expertise with AI-driven efficiency to deliver impactful and well-structured applications.
             </p>
           </div>
 
@@ -80,7 +80,7 @@ const Hero = () => {
             {/* Profile Image Container */}
             <div className="absolute inset-8 rounded-full overflow-hidden border-4 border-white/10 shadow-2xl shadow-primary/40">
               <img
-                src="https://picsum.photos/seed/bagus/800/800"
+                src="/images/about.png"
                 alt="Bagus Batra"
                 className="w-full h-full object-cover"
                 referrerPolicy="no-referrer"
@@ -95,7 +95,7 @@ const Hero = () => {
             >
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center text-primary">
-                  <span className="font-bold text-xl">3+</span>
+                  <span className="font-bold text-xl">1+</span>
                 </div>
                 <div className="text-xs font-bold text-white/70 uppercase tracking-wider">
                   Years <br /> Experience
