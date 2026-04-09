@@ -178,12 +178,12 @@ const handleLogout = () => {
                       <td className="px-8 py-6">
                         <div className="flex items-center gap-4">
                           <div className="w-12 h-12 bg-white/10 rounded-lg overflow-hidden">
-                            <img src={`https://picsum.photos/seed/${i}/100/100`} alt="" className="w-full h-full object-cover" />
+                            <img src={`images/elips.png`} alt="" className="w-full h-full object-cover" />
                           </div>
                           <span className="font-bold">Project {i}</span>
                         </div>
                       </td>
-                      <td className="px-8 py-6 text-white/50">Web Development</td>
+                      <td className="px-8 py-6 text-white/50">Contoh</td>
                       <td className="px-8 py-6 text-white/50">2024</td>
                       <td className="px-8 py-6">
                         <span className="px-3 py-1 bg-green-500/20 text-green-500 text-[10px] font-bold uppercase rounded-full">Published</span>

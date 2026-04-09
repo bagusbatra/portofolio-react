@@ -39,7 +39,7 @@ const Footer = () => {
           </div>
           <p className="text-white/50 flex items-center gap-2 pt-2">
             <Mail size={16} /> bagusbatr@gmail.com
-          </p>
+          </p>         
         </div>
       </div>
 
