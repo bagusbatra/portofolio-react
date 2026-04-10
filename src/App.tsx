@@ -7,6 +7,8 @@ import Contact from './pages/Contact';
 import ProjectDetail from './pages/ProjectDetail';
 import Login from './pages/Login';
 import Admin from './pages/Admin';
+import CreateProject from './pages/projects/Create';
+import EditProject from './pages/projects/Edit';
 
 function App() {
   return (
@@ -26,6 +28,8 @@ function App() {
 
         {/* Admin Routes */}
         <Route path="/admin" element={<Admin />} />
+        <Route path="/admin/projects/create" element={<CreateProject />} />
+        <Route path="/admin/projects/edit/:id" element={<EditProject />} />
       </Routes>
     </Router>
   );
