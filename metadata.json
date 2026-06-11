@@ -1,5 +1,6 @@
 {
-  "name": "Bagus Batra Portfolio",
-  "description": "Professional portfolio website for Bagus Batra, featuring projects, education, and contact management.",
-  "requestFramePermissions": []
+  "name": "Bagus Batra - Portfolio & Solutions Consultant",
+  "description": "Personal portfolio and digital solutions consultation platform for Bagus Batra, IT Architect, Full Stack Developer, and Educator.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

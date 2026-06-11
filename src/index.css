@@ -1,45 +1,57 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #6366f1;
-  --color-secondary: #0f172a;
-  --color-accent: #22c55e;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  
+  --color-brand-accent: #2563eb;
+  --color-brand-accent-glow: rgba(37, 99, 235, 0.15);
+  --color-brand-dark-base: #050505;
+  --color-brand-card: rgba(255, 255, 255, 0.03);
+  --color-brand-border: rgba(255, 255, 255, 0.1);
+  --color-brand-border-glow: rgba(37, 99, 235, 0.4);
 }
 
-:root {
-  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+@layer base {
+  body {
+    background-color: var(--color-brand-dark-base);
+    color: #e2e8f0;
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+  }
 }
 
-body {
-  @apply bg-secondary text-white font-sans antialiased;
-}
-
-.glass {
-  @apply bg-white/10 backdrop-blur-md border border-white/20;
-}
-
-.glass-dark {
-  @apply bg-black/40 backdrop-blur-lg border border-white/10;
-}
-
-.gradient-text {
-  @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent;
-}
-
-.section-padding {
-  @apply py-20 px-6 md:px-12 lg:px-24;
-}
-
-/* Custom Scrollbar */
+/* Custom scrolling design */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
+  height: 6px;
 }
-
 ::-webkit-scrollbar-track {
-  @apply bg-secondary;
+  background: #050505;
+}
+::-webkit-scrollbar-thumb {
+  background: #111424;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #1e60ff;
 }
 
-::-webkit-scrollbar-thumb {
-  @apply bg-primary/50 rounded-full hover:bg-primary;
+/* Custom fade glow */
+.glow-effect {
+  position: relative;
+}
+.glow-effect::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.02));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
 }
