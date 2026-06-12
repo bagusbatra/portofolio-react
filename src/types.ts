@@ -47,3 +47,11 @@ export interface ChatMessage {
   isFormSuggestion?: boolean;
   projectBrief?: any;
 }
+
+export interface ContactForm {
+  name: string;
+  email: string;
+  company: string;
+  projectType: string;
+  message: string;
+}
