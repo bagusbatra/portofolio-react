@@ -1,14 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
 @import "tailwindcss";
 
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Space Grotesk", sans-serif;
+  --font-display: "Plus Jakarta Sans", "Inter", ui-sans-serif, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
   
   --color-brand-accent: #2563eb;
   --color-brand-accent-glow: rgba(37, 99, 235, 0.15);
-  --color-brand-dark-base: #050505;
+  --color-brand-dark-base: #060a14;
+  --color-brand-surface: #0b1222;
+  --color-brand-surface-alt: #0f1830;
   --color-brand-card: rgba(255, 255, 255, 0.03);
   --color-brand-border: rgba(255, 255, 255, 0.1);
   --color-brand-border-glow: rgba(37, 99, 235, 0.4);
@@ -17,6 +19,11 @@
 @layer base {
   body {
     background-color: var(--color-brand-dark-base);
+    background-image:
+      radial-gradient(ellipse 80% 50% at 50% -10%, rgba(37, 99, 235, 0.16), transparent),
+      linear-gradient(180deg, #0a1226 0%, #060a14 45%, #03060d 100%);
+    background-attachment: fixed;
+    background-size: cover;
     color: #e2e8f0;
     font-family: var(--font-sans);
     overflow-x: hidden;
@@ -29,14 +36,34 @@
   height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #050505;
+  background: #060a14;
 }
 ::-webkit-scrollbar-thumb {
-  background: #111424;
+  background: #1c2b4a;
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #1e60ff;
+}
+
+/* Soft ambient background animation */
+@keyframes drift-glow {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translate(4%, 6%) scale(1.15);
+    opacity: 1;
+  }
+}
+
+.animate-drift-glow {
+  animation: drift-glow 24s ease-in-out infinite;
+}
+
+.animate-drift-glow-slow {
+  animation: drift-glow 32s ease-in-out infinite reverse;
 }
 
 /* Custom fade glow */

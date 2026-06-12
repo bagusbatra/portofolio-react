@@ -146,29 +146,34 @@ export default function ProjectEcosystem() {
         {/* Visual Stage */}
         <div className="relative w-full flex-grow py-12 flex items-center justify-center">
           {/* Connector SVGs */}
-          <svg className="absolute inset-0 w-full h-full pointer-events-none" style={{ minHeight: '100%' }}>
+          <svg
+            className="absolute inset-0 w-full h-full pointer-events-none"
+            style={{ minHeight: '100%' }}
+            viewBox="0 0 100 100"
+            preserveAspectRatio="none"
+          >
             {connections.map((conn, idx) => {
               const fromN = nodes.find(n => n.id === conn.from);
               const toN = nodes.find(n => n.id === conn.to);
               if (!fromN || !toN) return null;
-              
+
               return (
                 <g key={idx}>
-                  <line 
-                    x1={`${fromN.x}%`} 
-                    y1={`${fromN.y}%`} 
-                    x2={`${toN.x}%`} 
-                    y2={`${toN.y}%`}
+                  <line
+                    x1={fromN.x}
+                    y1={fromN.y}
+                    x2={toN.x}
+                    y2={toN.y}
                     stroke="rgba(30, 96, 255, 0.15)"
-                    strokeWidth="1.5"
-                    strokeDasharray="4 4"
+                    strokeWidth="0.3"
+                    strokeDasharray="1.5 1.5"
                   />
                   {activeSignal && (
-                    <circle r="4" fill="#1e60ff" className="animate-[pulse_1.5s_infinite]">
-                      <animateMotion 
-                        path={`M ${fromN.x * 4},${fromN.y * 3.5} L ${toN.x * 4},${toN.y * 3.5}`} 
-                        dur="3s" 
-                        repeatCount="indefinite" 
+                    <circle r="1.2" fill="#1e60ff" className="animate-[pulse_1.5s_infinite]">
+                      <animateMotion
+                        path={`M ${fromN.x},${fromN.y} L ${toN.x},${toN.y}`}
+                        dur="3s"
+                        repeatCount="indefinite"
                       />
                     </circle>
                   )}
@@ -183,38 +188,42 @@ export default function ProjectEcosystem() {
             const isSelected = node.id === selectedNodeId;
 
             return (
-              <motion.button
-                id={`eco-node-${node.id}`}
+              <div
                 key={node.id}
-                onClick={() => setSelectedNodeId(node.id)}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
                 style={{
                   position: "absolute",
                   left: `${node.x}%`,
                   top: `${node.y}%`,
                   transform: "translate(-50%, -50%)",
                 }}
-                className={`flex flex-col items-center justify-center p-3 rounded-xl transition-all duration-300 z-10 cursor-pointer min-w-[120px] max-w-[150px]
-                  ${isSelected 
-                    ? "bg-brand-accent text-white shadow-[0_0_20px_var(--color-brand-accent-glow)] border border-white/20" 
-                    : "bg-[#050505] text-[#adc3ff]/70 hover:text-white border border-white/10 hover:border-brand-accent/40"
-                  }`}
+                className="z-10"
               >
-                <div className={`p-1.5 rounded-lg mb-1.5 ${isSelected ? "bg-white/20" : "bg-white/5"}`}>
-                  <Icon className="w-5 h-5" />
-                </div>
-                <span className="font-display font-medium text-[11px] tracking-wide text-center leading-tight">
-                  {node.label}
-                </span>
-                
-                {/* Visual Category Label */}
-                <span className={`text-[8px] font-mono mt-1 px-1.5 py-0.5 rounded ${
-                  isSelected ? "bg-white/20 text-white" : "bg-white/[0.04] text-[#5d6880]"
-                }`}>
-                  {node.category.toUpperCase()}
-                </span>
-              </motion.button>
+                <motion.button
+                  id={`eco-node-${node.id}`}
+                  onClick={() => setSelectedNodeId(node.id)}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className={`flex flex-col items-center justify-center p-3 rounded-xl transition-all duration-300 cursor-pointer min-w-[120px] max-w-[150px]
+                    ${isSelected
+                      ? "bg-brand-accent text-white shadow-[0_0_20px_var(--color-brand-accent-glow)] border border-white/20"
+                      : "bg-[#0b1222] text-[#adc3ff]/70 hover:text-white border border-white/10 hover:border-brand-accent/40"
+                    }`}
+                >
+                  <div className={`p-1.5 rounded-lg mb-1.5 ${isSelected ? "bg-white/20" : "bg-white/5"}`}>
+                    <Icon className="w-5 h-5" />
+                  </div>
+                  <span className="font-display font-medium text-[11px] tracking-wide text-center leading-tight">
+                    {node.label}
+                  </span>
+
+                  {/* Visual Category Label */}
+                  <span className={`text-[8px] font-mono mt-1 px-1.5 py-0.5 rounded ${
+                    isSelected ? "bg-white/20 text-white" : "bg-white/[0.04] text-[#5d6880]"
+                  }`}>
+                    {node.category.toUpperCase()}
+                  </span>
+                </motion.button>
+              </div>
             );
           })}
         </div>
@@ -259,7 +268,7 @@ export default function ProjectEcosystem() {
               <span className="text-[10px] font-mono text-brand-accent uppercase tracking-wider block font-bold">
                 Engineering Blueprint
               </span>
-              <p className="text-sm text-slate-300 mt-1 leading-relaxed font-sans font-mono text-[12px] bg-[#050505] p-2 rounded border border-white/10">
+              <p className="text-sm text-slate-300 mt-1 leading-relaxed font-sans font-mono text-[12px] bg-[#0b1222] p-2 rounded border border-white/10">
                 {selectedNode.details.keyConcept}
               </p>
             </div>

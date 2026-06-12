@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { 
   ArrowUpRight, 
@@ -27,9 +27,21 @@ import {
 import { PROJECTS, SERVICES, ARTICLES, EXPERIENCE } from "./data";
 import ProjectEcosystem from "./components/ProjectEcosystem";
 import AITwinChat from "./components/AITwinChat";
+import ProjectsPage from "./components/ProjectsPage";
+
+const NAV_ITEMS = [
+  { id: "ecosystem", label: "System Map" },
+  { id: "problems", label: "Expertise" },
+  { id: "work", label: "Solutions" },
+  { id: "experience", label: "Experience" },
+  { id: "knowledge", label: "Journal" },
+  { id: "services", label: "Services" },
+];
 
 export default function App() {
+  const [route, setRoute] = useState<string>(() => window.location.pathname);
   const [activeTab, setActiveTab] = useState<string>("village-info-system");
+  const [activeSection, setActiveSection] = useState<string>("ecosystem");
   const [formSubmitted, setFormSubmitted] = useState<boolean>(false);
   const [contactForm, setContactForm] = useState({
     name: "",
@@ -64,24 +76,88 @@ export default function App() {
 
   // Scroll helper
   const scrollToSection = (id: string) => {
+    if (route !== "/") {
+      navigateTo("/");
+      // Allow the home page to mount before scrolling to the target section
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          const el = document.getElementById(id);
+          if (el) {
+            setActiveSection(id);
+            el.scrollIntoView({ behavior: "smooth" });
+          }
+        });
+      });
+      return;
+    }
+
     const el = document.getElementById(id);
     if (el) {
+      setActiveSection(id);
       el.scrollIntoView({ behavior: "smooth" });
     }
   };
 
+  // Simple client-side navigation between the home page and the project archive
+  const navigateTo = (path: string) => {
+    window.history.pushState({}, "", path);
+    setRoute(path);
+    window.scrollTo({ top: 0 });
+  };
+
+  useEffect(() => {
+    const onPopState = () => setRoute(window.location.pathname);
+    window.addEventListener("popstate", onPopState);
+    return () => window.removeEventListener("popstate", onPopState);
+  }, []);
+
+  // Highlight the nav link of whichever section is currently in view
+  useEffect(() => {
+    if (route !== "/") return;
+
+    const sectionIds = NAV_ITEMS.map((item) => item.id);
+    const sections = sectionIds
+      .map((id) => document.getElementById(id))
+      .filter((el): el is HTMLElement => el !== null);
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+        if (visible) {
+          setActiveSection(visible.target.id);
+        }
+      },
+      { rootMargin: "-35% 0px -55% 0px", threshold: 0 }
+    );
+
+    sections.forEach((section) => observer.observe(section));
+    return () => observer.disconnect();
+  }, [route]);
+
   const selectedFeaturedProject = PROJECTS.find(p => p.id === activeTab) || PROJECTS[0];
+
+  if (route === "/projects") {
+    return (
+      <ProjectsPage
+        onBack={() => navigateTo("/")}
+        onConsult={() => scrollToSection("consultation-hub")}
+      />
+    );
+  }
 
   return (
     <div className="min-h-screen bg-brand-dark-base selection:bg-brand-accent selection:text-white relative">
       
       {/* 1. Subtle, high-end backgrounds */}
       <div className="absolute top-0 left-0 right-0 h-[600px] bg-gradient-to-b from-brand-accent/5 via-transparent to-transparent pointer-events-none z-0" />
-      <div className="absolute top-[1200px] right-0 w-[400px] h-[400px] bg-indigo-500/5 rounded-full blur-[120px] pointer-events-none z-0" />
-      <div className="absolute bottom-[800px] left-0 w-[500px] h-[500px] bg-emerald-500/5 rounded-full blur-[140px] pointer-events-none z-0" />
+      <div className="absolute top-[1200px] right-0 w-[400px] h-[400px] bg-blue-600/5 rounded-full blur-[120px] pointer-events-none z-0 animate-drift-glow" />
+      <div className="absolute bottom-[800px] left-0 w-[500px] h-[500px] bg-sky-500/5 rounded-full blur-[140px] pointer-events-none z-0 animate-drift-glow-slow" />
 
       {/* Floating Header */}
-      <header className="sticky top-0 z-50 bg-[#050505]/80 backdrop-blur-md border-b border-white/10 transition-all py-4">
+      <header className="sticky top-0 z-50 bg-[#0b1222]/80 backdrop-blur-md border-b border-white/10 transition-all py-4">
         <div className="w-full max-w-7xl mx-auto px-6 flex items-center justify-between">
           <div className="flex items-center gap-3 cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
             <div className="h-8 w-8 bg-brand-accent rounded-sm flex items-center justify-center font-display font-black text-white text-xs tracking-tighter shadow-md">
@@ -99,41 +175,24 @@ export default function App() {
 
           {/* Nav links */}
           <nav className="hidden md:flex items-center gap-8 text-[11px] uppercase tracking-widest font-semibold font-mono">
-            <button 
-              onClick={() => scrollToSection("ecosystem")} 
-              className="text-brand-accent transition-all cursor-pointer underline underline-offset-8 decoration-2"
-            >
-              System Map
-            </button>
-            <button 
-              onClick={() => scrollToSection("problems")} 
+            {NAV_ITEMS.map((item) => (
+              <button
+                key={item.id}
+                onClick={() => scrollToSection(item.id)}
+                className={
+                  activeSection === item.id
+                    ? "text-brand-accent transition-all cursor-pointer underline underline-offset-8 decoration-2"
+                    : "opacity-60 hover:opacity-100 transition-opacity cursor-pointer text-slate-350"
+                }
+              >
+                {item.label}
+              </button>
+            ))}
+            <button
+              onClick={() => navigateTo("/projects")}
               className="opacity-60 hover:opacity-100 transition-opacity cursor-pointer text-slate-350"
             >
-              Expertise
-            </button>
-            <button 
-              onClick={() => scrollToSection("work")} 
-              className="opacity-60 hover:opacity-100 transition-opacity cursor-pointer text-slate-350"
-            >
-              Solutions
-            </button>
-            <button 
-              onClick={() => scrollToSection("experience")} 
-              className="opacity-60 hover:opacity-100 transition-opacity cursor-pointer text-slate-350"
-            >
-              Experience
-            </button>
-            <button 
-              onClick={() => scrollToSection("knowledge")} 
-              className="opacity-60 hover:opacity-100 transition-opacity cursor-pointer text-slate-350"
-            >
-              Journal
-            </button>
-            <button 
-              onClick={() => scrollToSection("services")} 
-              className="opacity-60 hover:opacity-100 transition-opacity cursor-pointer text-slate-350"
-            >
-              Services
+              Projects
             </button>
           </nav>
 
@@ -313,22 +372,32 @@ export default function App() {
                 Selected Work & Solutions
               </h2>
             </div>
-            
-            {/* Horizontal project filter controls */}
-            <div className="flex flex-wrap gap-2">
-              {PROJECTS.map((p) => (
-                <button
-                  key={p.id}
-                  onClick={() => setActiveTab(p.id)}
-                  className={`py-2 px-4 rounded-xl text-xs font-mono tracking-wider transition-all cursor-pointer ${
-                    activeTab === p.id 
-                      ? "bg-brand-accent text-white font-medium shadow-md"
-                      : "bg-[#050505] text-slate-400 hover:text-slate-200 border border-white/10"
-                  }`}
-                >
-                  {p.title.split(" ")[0]}.. {p.category}
-                </button>
-              ))}
+
+            <div className="flex flex-col items-start md:items-end gap-3">
+              {/* Horizontal project filter controls */}
+              <div className="flex flex-wrap gap-2">
+                {PROJECTS.map((p) => (
+                  <button
+                    key={p.id}
+                    onClick={() => setActiveTab(p.id)}
+                    className={`py-2 px-4 rounded-xl text-xs font-mono tracking-wider transition-all cursor-pointer ${
+                      activeTab === p.id
+                        ? "bg-brand-accent text-white font-medium shadow-md"
+                        : "bg-[#0b1222] text-slate-400 hover:text-slate-200 border border-white/10"
+                    }`}
+                  >
+                    {p.title.split(" ")[0]}.. {p.category}
+                  </button>
+                ))}
+              </div>
+
+              <button
+                onClick={() => navigateTo("/projects")}
+                className="font-mono text-xs text-brand-accent hover:text-white flex items-center gap-1.5 group transition-all cursor-pointer"
+              >
+                View all projects in interactive archive
+                <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+              </button>
             </div>
           </div>
 
@@ -770,7 +839,7 @@ export default function App() {
                       value={contactForm.name}
                       onChange={handleFormChange}
                       placeholder="e.g. Director of Academics"
-                      className="w-full py-2.5 px-3 rounded-lg text-xs bg-[#050505] border border-white/10 focus:border-brand-accent text-white placeholder-slate-600 focus:outline-none"
+                      className="w-full py-2.5 px-3 rounded-lg text-xs bg-[#0b1222] border border-white/10 focus:border-brand-accent text-white placeholder-slate-600 focus:outline-none"
                     />
                   </div>
 
@@ -785,7 +854,7 @@ export default function App() {
                       value={contactForm.email}
                       onChange={handleFormChange}
                       placeholder="e.g. domain@school.edu"
-                      className="w-full py-2.5 px-3 rounded-lg text-xs bg-[#050505] border border-white/10 focus:border-brand-accent text-white placeholder-slate-600 focus:outline-none"
+                      className="w-full py-2.5 px-3 rounded-lg text-xs bg-[#0b1222] border border-white/10 focus:border-brand-accent text-white placeholder-slate-600 focus:outline-none"
                     />
                   </div>
                 </div>
@@ -801,7 +870,7 @@ export default function App() {
                       value={contactForm.company}
                       onChange={handleFormChange}
                       placeholder="e.g. Merdeka Academy Group"
-                      className="w-full py-2.5 px-3 rounded-lg text-xs bg-[#050505] border border-white/10 focus:border-brand-accent text-white placeholder-slate-600 focus:outline-none"
+                      className="w-full py-2.5 px-3 rounded-lg text-xs bg-[#0b1222] border border-white/10 focus:border-brand-accent text-white placeholder-slate-600 focus:outline-none"
                     />
                   </div>
 
@@ -813,7 +882,7 @@ export default function App() {
                       name="projectType"
                       value={contactForm.projectType}
                       onChange={handleFormChange}
-                      className="w-full py-2.5 px-3 rounded-lg text-xs bg-[#050505] border border-white/10 focus:border-brand-accent text-white focus:outline-none"
+                      className="w-full py-2.5 px-3 rounded-lg text-xs bg-[#0b1222] border border-white/10 focus:border-brand-accent text-white focus:outline-none"
                     >
                       <option value="Academic Portal (SIS)">Academic Portal (SIS)</option>
                       <option value="Village Civil Platform">Village Civil Platform</option>
@@ -834,7 +903,7 @@ export default function App() {
                     value={contactForm.message}
                     onChange={handleFormChange}
                     placeholder="Briefly state current database structures, SAP integration requirements, offline limitations, or timeline parameters..."
-                    className="w-full py-2.5 px-3 rounded-lg text-xs bg-[#050505] border border-white/10 focus:border-brand-accent text-white placeholder-slate-600 focus:outline-none resize-none"
+                    className="w-full py-2.5 px-3 rounded-lg text-xs bg-[#0b1222] border border-white/10 focus:border-brand-accent text-white placeholder-slate-600 focus:outline-none resize-none"
                   />
                 </div>
 
@@ -869,7 +938,7 @@ export default function App() {
       </main>
 
       {/* Futuristic footer rail */}
-      <footer className="border-t border-white/10 py-8 bg-[#050505] mt-16 relative z-10">
+      <footer className="border-t border-white/10 py-8 bg-[#0b1222] mt-16 relative z-10">
         <div className="w-full max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-3">
             <span className="text-[11px] font-mono text-slate-500 uppercase tracking-widest font-bold">

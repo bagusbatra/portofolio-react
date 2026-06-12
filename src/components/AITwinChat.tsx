@@ -23,9 +23,13 @@ export default function AITwinChat() {
   const [apiError, setApiError] = useState<string | null>(null);
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const prevMessagesLength = useRef(messages.length);
 
   useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    if (messages.length > prevMessagesLength.current) {
+      messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    }
+    prevMessagesLength.current = messages.length;
   }, [messages]);
 
   // Handle planner module selection
@@ -192,7 +196,7 @@ export default function AITwinChat() {
                     className={`py-2 px-3 rounded-lg text-left text-xs transition-all pointer-events-auto cursor-pointer border uppercase tracking-wider font-semibold font-mono ${
                       projectType === type
                         ? "bg-brand-accent/20 border-brand-accent text-white"
-                        : "bg-[#050505] border-white/10 text-slate-400 hover:text-white"
+                        : "bg-[#0b1222] border-white/10 text-slate-400 hover:text-white"
                     }`}
                   >
                     {type}
@@ -209,7 +213,7 @@ export default function AITwinChat() {
               <select
                 value={projectScale}
                 onChange={(e) => setProjectScale(e.target.value)}
-                className="w-full py-2 px-3 rounded-lg text-xs bg-[#050505] border border-white/10 text-white focus:outline-none focus:border-brand-accent"
+                className="w-full py-2 px-3 rounded-lg text-xs bg-[#0b1222] border border-white/10 text-white focus:outline-none focus:border-brand-accent"
               >
                 <option value="SME / Regional Local Org">SME / Regional Local Org</option>
                 <option value="Academic Institution (1000+ Students)">Academic Institution (1000+ Students)</option>
@@ -299,7 +303,7 @@ export default function AITwinChat() {
       <div className="lg:col-span-7 bg-white/5 border border-white/10 rounded-xl flex flex-col justify-between h-[520px] shadow-2xl relative overflow-hidden backdrop-blur-md">
         
         {/* Terminal Header */}
-        <div className="flex items-center justify-between px-5 py-3 border-b border-white/10 bg-[#050505]">
+        <div className="flex items-center justify-between px-5 py-3 border-b border-white/10 bg-[#0b1222]">
           <div className="flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-brand-accent animate-[pulse_2s_infinite]" />
             <p className="font-display text-xs text-white font-semibold uppercase tracking-wider">
@@ -323,7 +327,7 @@ export default function AITwinChat() {
                 <div
                   className={`max-w-[85%] rounded-xl p-4 text-xs leading-relaxed space-y-2
                     ${isTwin 
-                      ? "bg-[#050505] text-slate-300 border border-white/10" 
+                      ? "bg-[#0b1222] text-slate-300 border border-white/10" 
                       : "bg-brand-accent text-white"
                     }`}
                 >
@@ -338,7 +342,7 @@ export default function AITwinChat() {
           
           {isLoading && (
             <div className="flex justify-start">
-              <div className="bg-[#050505] border border-white/10 rounded-xl p-4 text-xs max-w-[80px] flex items-center justify-center">
+              <div className="bg-[#0b1222] border border-white/10 rounded-xl p-4 text-xs max-w-[80px] flex items-center justify-center">
                 <div className="flex space-x-1">
                   <div className="w-1.5 h-1.5 bg-brand-accent rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
                   <div className="w-1.5 h-1.5 bg-brand-accent rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
@@ -362,7 +366,7 @@ export default function AITwinChat() {
         </div>
 
         {/* Suggestion actions */}
-        <div className="px-5 py-2 flex flex-wrap gap-2 border-t border-white/10 bg-[#050505] overflow-x-auto whitespace-nowrap scrollbar-none">
+        <div className="px-5 py-2 flex flex-wrap gap-2 border-t border-white/10 bg-[#0b1222] overflow-x-auto whitespace-nowrap scrollbar-none">
           {[
             "Describe School Portal architecture",
             "Explain Village Platform sync loop",
@@ -372,7 +376,7 @@ export default function AITwinChat() {
             <button
               key={sugg}
               onClick={() => setInputVal(sugg)}
-              className="py-1 px-3 bg-[#050505] border border-white/10 hover:border-brand-accent/50 text-[10px] text-slate-400 hover:text-white rounded-full transition-all cursor-pointer whitespace-nowrap text-left"
+              className="py-1 px-3 bg-[#0b1222] border border-white/10 hover:border-brand-accent/50 text-[10px] text-slate-400 hover:text-white rounded-full transition-all cursor-pointer whitespace-nowrap text-left"
             >
               {sugg}
             </button>
@@ -380,13 +384,13 @@ export default function AITwinChat() {
         </div>
 
         {/* Input box */}
-        <form onSubmit={handleSendMessage} className="p-4 border-t border-white/10 flex items-center gap-3 bg-[#050505]">
+        <form onSubmit={handleSendMessage} className="p-4 border-t border-white/10 flex items-center gap-3 bg-[#0b1222]">
           <input
             type="text"
             value={inputVal}
             onChange={(e) => setInputVal(e.target.value)}
             placeholder="Discuss specialized structures, tech stack queries, availability..."
-            className="flex-grow py-2 px-3 bg-[#050505] border border-white/10 focus:border-brand-accent focus:outline-none rounded-xl text-xs text-white placeholder-slate-500"
+            className="flex-grow py-2 px-3 bg-[#0b1222] border border-white/10 focus:border-brand-accent focus:outline-none rounded-xl text-xs text-white placeholder-slate-500"
           />
           <button
             type="submit"

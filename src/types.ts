@@ -2,7 +2,7 @@ export interface Project {
   id: string;
   title: string;
   subtitle: string;
-  category: "Enterprise ERP" | "Education" | "Community & Govt" | "Web Consulting";
+  category: string;
   problem: string;
   solution: string;
   impact: string;

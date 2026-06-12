@@ -64,6 +64,86 @@ export const PROJECTS: Project[] = [
       { label: "Core API Response time", value: "45ms" }
     ],
     featuredImage: "audit"
+  },
+  {
+    id: "clinic-ehr-system",
+    title: "Klinik Sehat Bersama EHR",
+    subtitle: "Outpatient Clinic Electronic Health Record & Queueing Platform",
+    category: "Healthcare",
+    problem: "A regional clinic network managed patient records on paper, causing duplicated histories, slow queue handling, and no visibility into stock levels for essential medicines.",
+    solution: "Delivered a Laravel & MySQL EHR system with structured patient timelines, role-based access for doctors and pharmacists, and a real-time queue display synced via REST polling.",
+    impact: "Cut average patient wait times and gave clinic staff a unified patient history view across multiple branches.",
+    tech: ["Laravel", "MySQL", "React", "REST API", "Role-Based Access"],
+    outcomeStats: [
+      { label: "Avg. patient wait time", value: "-45%" },
+      { label: "Branches connected", value: "5" },
+      { label: "Records digitized", value: "20,000+" }
+    ],
+    featuredImage: "clinic"
+  },
+  {
+    id: "b2b-ecommerce-portal",
+    title: "Nusantara Supply B2B Portal",
+    subtitle: "Wholesale Ordering & Distributor Pricing Platform",
+    category: "E-Commerce",
+    problem: "A distributor handled bulk orders manually via spreadsheets and chat, leading to mispriced quotes, slow order confirmations, and no central catalog for resellers.",
+    solution: "Built a React storefront backed by a Laravel API with tiered distributor pricing, automated quote generation, and MySQL-backed inventory sync across warehouses.",
+    impact: "Resellers can now self-serve catalog browsing and ordering, freeing the sales team to focus on key accounts.",
+    tech: ["React", "Laravel", "MySQL", "Tailwind CSS", "REST API"],
+    outcomeStats: [
+      { label: "Order processing time", value: "-60%" },
+      { label: "Active reseller accounts", value: "300+" },
+      { label: "Pricing error reports", value: "0" }
+    ],
+    featuredImage: "ecommerce"
+  },
+  {
+    id: "library-management-system",
+    title: "Perpustakaan Digital Cerdas",
+    subtitle: "School Library Catalog, Loans & Fine Tracking System",
+    category: "Education",
+    problem: "School librarians tracked book loans using handwritten ledgers, resulting in lost books, untracked overdue fines, and no searchable catalog for students.",
+    solution: "Implemented a lightweight Laravel application with a searchable MySQL catalog, barcode-assisted loan tracking, and automated overdue fine calculations.",
+    impact: "Gave librarians a real-time view of inventory and loan status while letting students search availability online.",
+    tech: ["Laravel", "PHP", "MySQL", "Bootstrap"],
+    outcomeStats: [
+      { label: "Catalog items tracked", value: "8,500+" },
+      { label: "Lost book rate", value: "-80%" },
+      { label: "Fine collection accuracy", value: "98%" }
+    ],
+    featuredImage: "library"
+  },
+  {
+    id: "hr-payroll-portal",
+    title: "Karyawan Prima HR & Payroll",
+    subtitle: "Employee Self-Service Portal with Automated Payroll Engine",
+    category: "Enterprise ERP",
+    problem: "An SME calculated payroll manually in spreadsheets each month, causing recurring tax miscalculations and no self-service way for staff to request leave or view payslips.",
+    solution: "Engineered a Laravel-based HR portal with configurable payroll components, automated tax/BPJS deduction rules, and a React employee dashboard for leave requests and digital payslips.",
+    impact: "Reduced monthly payroll processing from days to hours and gave employees direct access to their records.",
+    tech: ["Laravel", "React", "MySQL", "REST API", "Queue Jobs"],
+    outcomeStats: [
+      { label: "Payroll processing time", value: "-75%" },
+      { label: "Employees onboarded", value: "180+" },
+      { label: "Calculation disputes", value: "Near 0" }
+    ],
+    featuredImage: "hr"
+  },
+  {
+    id: "field-survey-sync-app",
+    title: "Desa Connect Field Survey Sync",
+    subtitle: "Offline-First Field Data Collection & Sync Engine",
+    category: "Community & Govt",
+    problem: "Field officers collecting community survey data in remote areas had no reliable internet, resulting in lost forms and delayed reporting to the district office.",
+    solution: "Built an offline-first web app using local-first storage that queues submissions and syncs automatically with a Laravel REST API and MySQL once connectivity returns.",
+    impact: "Field teams can now collect data anywhere and trust that records sync reliably once back in coverage.",
+    tech: ["React", "Laravel", "MySQL", "Service Workers", "REST API"],
+    outcomeStats: [
+      { label: "Survey records synced", value: "12,000+" },
+      { label: "Data loss incidents", value: "0" },
+      { label: "Districts covered", value: "6" }
+    ],
+    featuredImage: "field"
   }
 ];
 
