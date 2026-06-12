@@ -238,10 +238,10 @@ export default function ProjectEcosystem() {
         
         <div>
           <div className="flex items-center gap-2 mb-2 font-mono text-[11px] text-brand-accent">
-            <span className="text-xs uppercase font-bold tracking-widest">✓ SYSTEM NODE SPEC</span>
+            <span className="text-[11px] uppercase font-bold tracking-widest">✓ SYSTEM NODE SPEC</span>
           </div>
 
-          <h3 className="font-display text-2xl font-semibold text-white tracking-tight mb-4 uppercase">
+          <h3 className="font-display text-xl font-semibold text-white tracking-tight mb-4 uppercase">
             {selectedNode.label}
           </h3>
 
@@ -250,7 +250,7 @@ export default function ProjectEcosystem() {
               <span className="text-[10px] font-mono text-[#5d6880] uppercase tracking-wider block font-bold">
                 Primary Purpose
               </span>
-              <p className="text-sm text-slate-300 mt-1 leading-relaxed font-sans">
+              <p className="text-xs text-slate-300 mt-1 leading-relaxed font-sans">
                 {selectedNode.details.purpose}
               </p>
             </div>
@@ -259,7 +259,7 @@ export default function ProjectEcosystem() {
               <span className="text-[10px] font-mono text-amber-500/80 uppercase tracking-wider block font-bold">
                 Core Real-World Challenge Solved
               </span>
-              <p className="text-sm text-slate-300 mt-1 leading-relaxed font-sans">
+              <p className="text-xs text-slate-300 mt-1 leading-relaxed font-sans">
                 {selectedNode.details.challengeSolved}
               </p>
             </div>
@@ -268,7 +268,7 @@ export default function ProjectEcosystem() {
               <span className="text-[10px] font-mono text-brand-accent uppercase tracking-wider block font-bold">
                 Engineering Blueprint
               </span>
-              <p className="text-sm text-slate-300 mt-1 leading-relaxed font-sans font-mono text-[12px] bg-[#0b1222] p-2 rounded border border-white/10">
+              <p className="text-xs text-slate-300 mt-1 leading-relaxed font-sans font-mono text-[11px] bg-[#0b1222] p-2 rounded border border-white/10">
                 {selectedNode.details.keyConcept}
               </p>
             </div>
@@ -282,7 +282,7 @@ export default function ProjectEcosystem() {
             <ShieldCheck className="w-4 h-4" />
             Bagus's Optimization Audit
           </div>
-          <p className="text-xs text-slate-300 font-sans leading-relaxed">
+          <p className="text-[11px] text-slate-300 font-sans leading-relaxed">
             {selectedNode.details.bagusOptim}
           </p>
         </div>

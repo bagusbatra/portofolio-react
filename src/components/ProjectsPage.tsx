@@ -58,13 +58,13 @@ export default function ProjectsPage({ onBack, onConsult }: ProjectsPageProps) {
 
       {/* Header */}
       <header className="sticky top-0 z-50 bg-[#0b1222]/80 backdrop-blur-md border-b border-white/10 transition-all py-4">
-        <div className="w-full max-w-7xl mx-auto px-6 flex items-center justify-between">
+        <div className="w-full max-w-7xl mx-auto px-8 sm:px-14 lg:px-28 xl:px-40 2xl:px-48 flex items-center justify-between">
           <div className="flex items-center gap-3 cursor-pointer" onClick={onBack}>
-            <div className="h-8 w-8 bg-brand-accent rounded-sm flex items-center justify-center font-display font-black text-white text-xs tracking-tighter shadow-md">
+            <div className="h-8 w-8 bg-brand-accent rounded-sm flex items-center justify-center font-display font-black text-white text-[11px] tracking-tighter shadow-md">
               BB
             </div>
             <div>
-              <p className="font-display font-medium text-xs tracking-tight text-white uppercase leading-none opacity-90">
+              <p className="font-display font-medium text-[11px] tracking-tight text-white uppercase leading-none opacity-90">
                 Bagus Batra
               </p>
               <span className="font-mono text-[8px] tracking-widest text-[#5d6880] uppercase mt-0.5 block">
@@ -84,15 +84,15 @@ export default function ProjectsPage({ onBack, onConsult }: ProjectsPageProps) {
       </header>
 
       {/* Main */}
-      <main className="relative z-10 w-full max-w-7xl mx-auto px-6 py-16 space-y-10">
+      <main className="relative z-10 w-full max-w-7xl mx-auto px-8 sm:px-14 lg:px-28 xl:px-40 2xl:px-48 py-16 space-y-10">
         <div className="space-y-3 max-w-3xl">
           <span className="font-mono text-[10px] text-brand-accent uppercase tracking-[0.2em] block font-bold">
             FULL PROJECT ARCHIVE
           </span>
-          <h1 className="font-display text-3xl sm:text-4xl font-bold text-white tracking-tight">
+          <h1 className="font-display text-2xl sm:text-3xl font-bold text-white tracking-tight">
             All Delivered Solutions & Case Studies
           </h1>
-          <p className="text-xs sm:text-sm text-slate-400 leading-relaxed font-sans">
+          <p className="text-[11px] sm:text-xs text-slate-400 leading-relaxed font-sans">
             A library of systems engineered across education, government, enterprise, and commercial sectors. Click any card for a full architectural breakdown.
           </p>
         </div>
@@ -103,7 +103,7 @@ export default function ProjectsPage({ onBack, onConsult }: ProjectsPageProps) {
             <button
               key={cat}
               onClick={() => setActiveCategory(cat)}
-              className={`py-2 px-4 rounded-xl text-xs font-mono tracking-wider transition-all cursor-pointer ${
+              className={`py-2 px-4 rounded-xl text-[11px] font-mono tracking-wider transition-all cursor-pointer ${
                 activeCategory === cat
                   ? "bg-brand-accent text-white font-medium shadow-md"
                   : "bg-[#0b1222] text-slate-400 hover:text-slate-200 border border-white/10"
@@ -139,15 +139,15 @@ export default function ProjectsPage({ onBack, onConsult }: ProjectsPageProps) {
                 </div>
 
                 <div>
-                  <h3 className="font-display text-lg font-semibold text-white tracking-tight mb-1">
+                  <h3 className="font-display text-base font-semibold text-white tracking-tight mb-1">
                     {project.title}
                   </h3>
-                  <p className="text-xs font-mono text-[#5d6880] tracking-wide">
+                  <p className="text-[11px] font-mono text-[#5d6880] tracking-wide">
                     {project.subtitle}
                   </p>
                 </div>
 
-                <p className="text-xs text-slate-400 font-sans leading-relaxed line-clamp-3">
+                <p className="text-[11px] text-slate-400 font-sans leading-relaxed line-clamp-3">
                   {project.impact}
                 </p>
 
@@ -208,10 +208,10 @@ export default function ProjectsPage({ onBack, onConsult }: ProjectsPageProps) {
                 </span>
               </div>
 
-              <h2 className="font-display text-2xl sm:text-3xl font-bold text-white tracking-tight mb-2">
+              <h2 className="font-display text-xl sm:text-2xl font-bold text-white tracking-tight mb-2">
                 {selectedProject.title}
               </h2>
-              <p className="text-sm font-mono text-[#5d6880] tracking-wide mb-6">
+              <p className="text-xs font-mono text-[#5d6880] tracking-wide mb-6">
                 {selectedProject.subtitle}
               </p>
 
@@ -223,7 +223,7 @@ export default function ProjectsPage({ onBack, onConsult }: ProjectsPageProps) {
                     </span>
                   </div>
                   <div className="md:col-span-9">
-                    <p className="text-xs sm:text-sm text-slate-300 font-sans leading-relaxed">
+                    <p className="text-[11px] sm:text-xs text-slate-300 font-sans leading-relaxed">
                       {selectedProject.problem}
                     </p>
                   </div>
@@ -236,7 +236,7 @@ export default function ProjectsPage({ onBack, onConsult }: ProjectsPageProps) {
                     </span>
                   </div>
                   <div className="md:col-span-9">
-                    <p className="text-xs sm:text-sm text-slate-300 font-sans leading-relaxed">
+                    <p className="text-[11px] sm:text-xs text-slate-300 font-sans leading-relaxed">
                       {selectedProject.solution}
                     </p>
                   </div>
@@ -249,7 +249,7 @@ export default function ProjectsPage({ onBack, onConsult }: ProjectsPageProps) {
                     </span>
                   </div>
                   <div className="md:col-span-9">
-                    <p className="text-xs sm:text-sm text-slate-300 font-sans leading-relaxed">
+                    <p className="text-[11px] sm:text-xs text-slate-300 font-sans leading-relaxed">
                       {selectedProject.impact}
                     </p>
                   </div>
@@ -260,10 +260,10 @@ export default function ProjectsPage({ onBack, onConsult }: ProjectsPageProps) {
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
                 {selectedProject.outcomeStats.map((stat, idx) => (
                   <div key={idx} className="bg-white/5 border border-white/10 rounded-xl p-4">
-                    <span className="text-2xl font-display font-bold text-white tracking-tight leading-none block">
+                    <span className="text-xl font-display font-bold text-white tracking-tight leading-none block">
                       {stat.value}
                     </span>
-                    <span className="text-xs text-slate-400 font-sans tracking-wide mt-1 block">
+                    <span className="text-[11px] text-slate-400 font-sans tracking-wide mt-1 block">
                       {stat.label}
                     </span>
                   </div>
@@ -279,7 +279,7 @@ export default function ProjectsPage({ onBack, onConsult }: ProjectsPageProps) {
                     setSelectedProject(null);
                     onConsult();
                   }}
-                  className="font-mono text-xs text-brand-accent hover:text-white flex items-center gap-1.5 group transition-all cursor-pointer"
+                  className="font-mono text-[11px] text-brand-accent hover:text-white flex items-center gap-1.5 group transition-all cursor-pointer"
                 >
                   Discuss project system architecture
                   <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />

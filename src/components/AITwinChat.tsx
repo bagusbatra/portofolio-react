@@ -173,7 +173,7 @@ export default function AITwinChat() {
             </span>
           </div>
           
-          <h3 className="font-display text-xl font-bold text-white mb-6 uppercase tracking-tight">
+          <h3 className="font-display text-lg font-bold text-white mb-6 uppercase tracking-tight">
             Blueprint Customizer
           </h3>
 
@@ -193,7 +193,7 @@ export default function AITwinChat() {
                   <button
                     key={type}
                     onClick={() => setProjectType(type)}
-                    className={`py-2 px-3 rounded-lg text-left text-xs transition-all pointer-events-auto cursor-pointer border uppercase tracking-wider font-semibold font-mono ${
+                    className={`py-2 px-3 rounded-lg text-left text-[11px] transition-all pointer-events-auto cursor-pointer border uppercase tracking-wider font-semibold font-mono ${
                       projectType === type
                         ? "bg-brand-accent/20 border-brand-accent text-white"
                         : "bg-[#0b1222] border-white/10 text-slate-400 hover:text-white"
@@ -213,7 +213,7 @@ export default function AITwinChat() {
               <select
                 value={projectScale}
                 onChange={(e) => setProjectScale(e.target.value)}
-                className="w-full py-2 px-3 rounded-lg text-xs bg-[#0b1222] border border-white/10 text-white focus:outline-none focus:border-brand-accent"
+                className="w-full py-2 px-3 rounded-lg text-[11px] bg-[#0b1222] border border-white/10 text-white focus:outline-none focus:border-brand-accent"
               >
                 <option value="SME / Regional Local Org">SME / Regional Local Org</option>
                 <option value="Academic Institution (1000+ Students)">Academic Institution (1000+ Students)</option>
@@ -291,7 +291,7 @@ export default function AITwinChat() {
         <div className="mt-8 pt-4 border-t border-white/10">
           <button
             onClick={handleSyncBriefToAI}
-            className="w-full py-3 px-4 rounded-xl bg-brand-accent text-white font-mono text-xs tracking-wider uppercase font-bold hover:bg-brand-accent/95 transition-all flex items-center justify-center gap-2 cursor-pointer shadow-md"
+            className="w-full py-3 px-4 rounded-xl bg-brand-accent text-white font-mono text-[11px] tracking-wider uppercase font-bold hover:bg-brand-accent/95 transition-all flex items-center justify-center gap-2 cursor-pointer shadow-md"
           >
             <Sparkles className="w-4 h-4" />
             Analyze Blueprint with AI Twin
@@ -306,7 +306,7 @@ export default function AITwinChat() {
         <div className="flex items-center justify-between px-5 py-3 border-b border-white/10 bg-[#0b1222]">
           <div className="flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-brand-accent animate-[pulse_2s_infinite]" />
-            <p className="font-display text-xs text-white font-semibold uppercase tracking-wider">
+            <p className="font-display text-[11px] text-white font-semibold uppercase tracking-wider">
               Bagus Batra AI Solutions Assistant
             </p>
           </div>
@@ -325,7 +325,7 @@ export default function AITwinChat() {
                 className={`flex ${isTwin ? "justify-start" : "justify-end"}`}
               >
                 <div
-                  className={`max-w-[85%] rounded-xl p-4 text-xs leading-relaxed space-y-2
+                  className={`max-w-[85%] rounded-xl p-4 text-[11px] leading-relaxed space-y-2
                     ${isTwin 
                       ? "bg-[#0b1222] text-slate-300 border border-white/10" 
                       : "bg-brand-accent text-white"
@@ -342,7 +342,7 @@ export default function AITwinChat() {
           
           {isLoading && (
             <div className="flex justify-start">
-              <div className="bg-[#0b1222] border border-white/10 rounded-xl p-4 text-xs max-w-[80px] flex items-center justify-center">
+              <div className="bg-[#0b1222] border border-white/10 rounded-xl p-4 text-[11px] max-w-[80px] flex items-center justify-center">
                 <div className="flex space-x-1">
                   <div className="w-1.5 h-1.5 bg-brand-accent rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
                   <div className="w-1.5 h-1.5 bg-brand-accent rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
@@ -390,12 +390,12 @@ export default function AITwinChat() {
             value={inputVal}
             onChange={(e) => setInputVal(e.target.value)}
             placeholder="Discuss specialized structures, tech stack queries, availability..."
-            className="flex-grow py-2 px-3 bg-[#0b1222] border border-white/10 focus:border-brand-accent focus:outline-none rounded-xl text-xs text-white placeholder-slate-500"
+            className="flex-grow py-2 px-3 bg-[#0b1222] border border-white/10 focus:border-brand-accent focus:outline-none rounded-xl text-[11px] text-white placeholder-slate-500"
           />
           <button
             type="submit"
             disabled={isLoading || !inputVal.trim()}
-            className="p-2 bg-brand-accent text-white rounded-xl hover:bg-brand-accent/90 transition-all text-xs disabled:opacity-40 select-none cursor-pointer"
+            className="p-2 bg-brand-accent text-white rounded-xl hover:bg-brand-accent/90 transition-all text-[11px] disabled:opacity-40 select-none cursor-pointer"
           >
             <Send className="w-4 h-4" />
           </button>

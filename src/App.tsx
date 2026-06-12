@@ -158,13 +158,13 @@ export default function App() {
 
       {/* Floating Header */}
       <header className="sticky top-0 z-50 bg-[#0b1222]/80 backdrop-blur-md border-b border-white/10 transition-all py-4">
-        <div className="w-full max-w-7xl mx-auto px-6 flex items-center justify-between">
+        <div className="w-full max-w-7xl mx-auto px-8 sm:px-14 lg:px-28 xl:px-40 2xl:px-48 flex items-center justify-between">
           <div className="flex items-center gap-3 cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
-            <div className="h-8 w-8 bg-brand-accent rounded-sm flex items-center justify-center font-display font-black text-white text-xs tracking-tighter shadow-md">
+            <div className="h-8 w-8 bg-brand-accent rounded-sm flex items-center justify-center font-display font-black text-white text-[11px] tracking-tighter shadow-md">
               BB
             </div>
             <div>
-              <p className="font-display font-medium text-xs tracking-tight text-white uppercase leading-none opacity-90">
+              <p className="font-display font-medium text-[11px] tracking-tight text-white uppercase leading-none opacity-90">
                 Bagus Batra
               </p>
               <span className="font-mono text-[8px] tracking-widest text-[#5d6880] uppercase mt-0.5 block">
@@ -209,7 +209,7 @@ export default function App() {
       </header>
 
       {/* Main Container */}
-      <main className="relative z-10 w-full max-w-7xl mx-auto px-6 space-y-32 py-16">
+      <main className="relative z-10 w-full max-w-7xl mx-auto px-8 sm:px-14 lg:px-28 xl:px-40 2xl:px-48 space-y-32 py-16">
         
         {/* ==========================================
             HERO & ECOSYSTEM SECTION (Who I Am)
@@ -220,24 +220,24 @@ export default function App() {
               <span className="font-mono text-[10px] text-brand-accent uppercase tracking-[0.2em] block">
                 FULL STACK DEVELOPER • DIGITAL SOLUTION CONSULTANT • EDUCATOR
               </span>
-              <h1 className="font-display font-bold text-4xl sm:text-5xl lg:text-6xl text-white tracking-tight leading-[1.05]">
+              <h1 className="font-display font-bold text-3xl sm:text-4xl lg:text-5xl text-white tracking-tight leading-[1.05]">
                 I build digital solutions that solve <span className="text-[#0a5cff]">real-world</span> challenges.
               </h1>
-              <p className="font-sans text-slate-400 text-sm sm:text-base max-w-2xl leading-relaxed">
+              <p className="font-sans text-slate-400 text-xs sm:text-sm max-w-2xl leading-relaxed">
                 Specialized in constructing scalable ERP segments, custom School Information Systems (SIS), rural Village Portals, and resilient database APIs. Combining industry practices in Laravel and React with SAP integrations to bridge administrative deficits.
               </p>
               
               <div className="flex flex-wrap items-center gap-4 pt-2">
                 <button 
                   onClick={() => scrollToSection("consultation-hub")}
-                  className="py-3 px-6 rounded-xl bg-brand-accent text-white font-mono text-xs tracking-wider uppercase font-semibold hover:bg-brand-accent/90 transition-all flex items-center gap-2 cursor-pointer shadow-lg shadow-brand-accent-glow"
+                  className="py-3 px-6 rounded-xl bg-brand-accent text-white font-mono text-[11px] tracking-wider uppercase font-semibold hover:bg-brand-accent/90 transition-all flex items-center gap-2 cursor-pointer shadow-lg shadow-brand-accent-glow"
                 >
                   Configure Solutions Blueprint
                   <ArrowRight className="w-4 h-4" />
                 </button>
                 <button 
                   onClick={() => scrollToSection("work")}
-                  className="py-3 px-6 rounded-xl bg-white/[0.02] border border-white/[0.06] text-slate-300 font-mono text-xs tracking-wider uppercase hover:bg-white/[0.05] transition-all cursor-pointer"
+                  className="py-3 px-6 rounded-xl bg-white/[0.02] border border-white/[0.06] text-slate-300 font-mono text-[11px] tracking-wider uppercase hover:bg-white/[0.05] transition-all cursor-pointer"
                 >
                   Read Case Studies
                 </button>
@@ -251,10 +251,10 @@ export default function App() {
                 <span className="w-2 h-2 rounded-full bg-brand-accent animate-pulse" />
                 AVAILABILITY & STATUS
               </div>
-              <p className="font-display text-base font-semibold text-white uppercase tracking-tight">
+              <p className="font-display text-sm font-semibold text-white uppercase tracking-tight">
                 Taking Consultations & Systems Designing
               </p>
-              <div className="border-t border-white/10 pt-4 grid grid-cols-2 gap-4 text-xs font-mono text-slate-400">
+              <div className="border-t border-white/10 pt-4 grid grid-cols-2 gap-4 text-[11px] font-mono text-slate-400">
                 <div>
                   <span className="block text-[#5d6880] text-[10px] uppercase">Core Backend</span>
                   <p className="text-slate-200 mt-1 font-medium">Laravel & PHP 8.x</p>
@@ -290,10 +290,10 @@ export default function App() {
             <span className="font-mono text-[10px] text-brand-accent uppercase tracking-[0.2em] block font-bold">
               Core Competence Pillars
             </span>
-            <h2 className="font-display text-3xl sm:text-4xl font-bold text-white tracking-tight">
+            <h2 className="font-display text-2xl sm:text-3xl font-bold text-white tracking-tight">
               Bespoke Digital Consulting & Delivery
             </h2>
-            <p className="text-xs sm:text-sm text-slate-400 leading-relaxed font-sans">
+            <p className="text-[11px] sm:text-xs text-slate-400 leading-relaxed font-sans">
               I reject generic template deployments. I analyze operational voids in corporate bookkeeping, rural governance, and regional schools to formulate optimized, secure database environments.
             </p>
           </div>
@@ -305,10 +305,10 @@ export default function App() {
               <div className="h-10 w-10 bg-brand-accent/10 border border-brand-accent/20 rounded-lg flex items-center justify-center text-brand-accent">
                 <Code2 className="w-5 h-5" />
               </div>
-              <h3 className="font-display font-semibold text-lg text-white">
+              <h3 className="font-display font-semibold text-base text-white">
                 Creative Full Stack Engineering
               </h3>
-              <p className="text-xs text-slate-400 leading-relaxed font-sans">
+              <p className="text-[11px] text-slate-400 leading-relaxed font-sans">
                 Developing responsive modular interfaces coupled with secure relational repositories. Writing heavily optimized Laravel routes, clean React controllers, and highly normalized SQL schemas.
               </p>
               <ul className="font-mono text-[10px] text-slate-400 space-y-1.5 pt-4 border-t border-white/15">
@@ -324,10 +324,10 @@ export default function App() {
               <div className="h-10 w-10 bg-brand-accent/10 border border-brand-accent/20 rounded-lg flex items-center justify-center text-brand-accent">
                 <Workflow className="w-5 h-5" />
               </div>
-              <h3 className="font-display font-semibold text-lg text-white">
+              <h3 className="font-display font-semibold text-base text-white">
                 Digital Solution Consultation
               </h3>
-              <p className="text-xs text-slate-400 leading-relaxed font-sans">
+              <p className="text-[11px] text-slate-400 leading-relaxed font-sans">
                 Aligning technical stacks with business strategy. Formulating queue-backed middleware to synchronize transactions into legacy ERP structures (SAP) and removing manual data processing dependencies.
               </p>
               <ul className="font-mono text-[10px] text-slate-400 space-y-1.5 pt-4 border-t border-white/15">
@@ -343,10 +343,10 @@ export default function App() {
               <div className="h-10 w-10 bg-brand-accent/10 border border-brand-accent/20 rounded-lg flex items-center justify-center text-brand-accent">
                 <GraduationCap className="w-5 h-5" />
               </div>
-              <h3 className="font-display font-semibold text-lg text-white">
+              <h3 className="font-display font-semibold text-base text-white">
                 Technical IT Educator
               </h3>
-              <p className="text-xs text-slate-400 leading-relaxed font-sans">
+              <p className="text-[11px] text-slate-400 leading-relaxed font-sans">
                 Transferring architectural best practices into practical skill bootcamps. Empowering local developers, teams, and academic faculties to master modern paradigms, database hygiene, and clean deployment habits.
               </p>
               <ul className="font-mono text-[10px] text-slate-400 space-y-1.5 pt-4 border-t border-white/15">
@@ -368,7 +368,7 @@ export default function App() {
               <span className="font-mono text-[10px] text-brand-accent uppercase tracking-[0.2em] block font-bold">
                 CASE STUDY SHOWCASE
               </span>
-              <h2 className="font-display text-3xl sm:text-4xl font-bold text-white tracking-tight">
+              <h2 className="font-display text-2xl sm:text-3xl font-bold text-white tracking-tight">
                 Selected Work & Solutions
               </h2>
             </div>
@@ -380,7 +380,7 @@ export default function App() {
                   <button
                     key={p.id}
                     onClick={() => setActiveTab(p.id)}
-                    className={`py-2 px-4 rounded-xl text-xs font-mono tracking-wider transition-all cursor-pointer ${
+                    className={`py-2 px-4 rounded-xl text-[11px] font-mono tracking-wider transition-all cursor-pointer ${
                       activeTab === p.id
                         ? "bg-brand-accent text-white font-medium shadow-md"
                         : "bg-[#0b1222] text-slate-400 hover:text-slate-200 border border-white/10"
@@ -393,7 +393,7 @@ export default function App() {
 
               <button
                 onClick={() => navigateTo("/projects")}
-                className="font-mono text-xs text-brand-accent hover:text-white flex items-center gap-1.5 group transition-all cursor-pointer"
+                className="font-mono text-[11px] text-brand-accent hover:text-white flex items-center gap-1.5 group transition-all cursor-pointer"
               >
                 View all projects in interactive archive
                 <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
@@ -424,10 +424,10 @@ export default function App() {
                       </span>
                     </div>
 
-                    <h3 className="font-display text-2xl sm:text-3xl font-bold text-white tracking-tight mb-2">
+                    <h3 className="font-display text-xl sm:text-2xl font-bold text-white tracking-tight mb-2">
                       {selectedFeaturedProject.title}
                     </h3>
-                    <p className="text-sm font-mono text-[#5d6880] tracking-wide mb-6">
+                    <p className="text-xs font-mono text-[#5d6880] tracking-wide mb-6">
                       {selectedFeaturedProject.subtitle}
                     </p>
 
@@ -440,7 +440,7 @@ export default function App() {
                           </span>
                         </div>
                         <div className="md:col-span-9">
-                          <p className="text-xs sm:text-sm text-slate-300 font-sans leading-relaxed">
+                          <p className="text-[11px] sm:text-xs text-slate-300 font-sans leading-relaxed">
                             {selectedFeaturedProject.problem}
                           </p>
                         </div>
@@ -454,7 +454,7 @@ export default function App() {
                           </span>
                         </div>
                         <div className="md:col-span-9">
-                          <p className="text-xs sm:text-sm text-slate-300 font-sans leading-relaxed">
+                          <p className="text-[11px] sm:text-xs text-slate-300 font-sans leading-relaxed">
                             {selectedFeaturedProject.solution}
                           </p>
                         </div>
@@ -468,7 +468,7 @@ export default function App() {
                           </span>
                         </div>
                         <div className="md:col-span-9">
-                          <p className="text-xs sm:text-sm text-slate-300 font-sans leading-relaxed">
+                          <p className="text-[11px] sm:text-xs text-slate-300 font-sans leading-relaxed">
                             {selectedFeaturedProject.impact}
                           </p>
                         </div>
@@ -483,7 +483,7 @@ export default function App() {
                     </span>
                     <button
                       onClick={() => scrollToSection("consultation-hub")}
-                      className="font-mono text-xs text-brand-accent hover:text-white flex items-center gap-1.5 group transition-all"
+                      className="font-mono text-[11px] text-brand-accent hover:text-white flex items-center gap-1.5 group transition-all"
                     >
                       Discuss project system architecture
                       <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
@@ -505,10 +505,10 @@ export default function App() {
                     <div className="space-y-6 pt-4">
                       {selectedFeaturedProject.outcomeStats.map((stat, sIdx) => (
                         <div key={sIdx} className="border-b border-white/[0.03] pb-4 last:border-0 last:pb-0">
-                          <span className="text-[36px] sm:text-[44px] font-display font-bold text-white tracking-tight leading-none block">
+                          <span className="text-[28px] sm:text-[32px] font-display font-bold text-white tracking-tight leading-none block">
                             {stat.value}
                           </span>
-                          <span className="text-xs text-slate-400 font-sans tracking-wide mt-1 block">
+                          <span className="text-[11px] text-slate-400 font-sans tracking-wide mt-1 block">
                             {stat.label}
                           </span>
                         </div>
@@ -541,18 +541,18 @@ export default function App() {
               <span className="font-mono text-[10px] text-brand-accent uppercase tracking-widest block">
                 TIMEFRAME STORY
               </span>
-              <h2 className="font-display text-3xl sm:text-4xl font-bold text-white tracking-tight leading-tight">
+              <h2 className="font-display text-2xl sm:text-3xl font-bold text-white tracking-tight leading-tight">
                 Engineering Value Over Time
               </h2>
-              <p className="text-xs sm:text-sm text-slate-400 leading-relaxed font-sans">
+              <p className="text-[11px] sm:text-xs text-slate-400 leading-relaxed font-sans">
                 I do not fill spacing with long lists of standard duties. This is a chronological record of technical transformations, developer educations, and system design optimizations.
               </p>
 
               <div className="bg-white/5 border border-white/10 p-5 rounded-xl space-y-2 relative overflow-hidden">
                 <div className="absolute -bottom-8 -right-8 w-20 h-20 bg-brand-accent/5 rounded-full blur-2xl pointer-events-none" />
                 <span className="font-mono text-[10px] text-[#5d6880] block uppercase font-bold">TOTAL PORTFOLIO STAT:</span>
-                <p className="font-display text-2xl font-bold text-white uppercase tracking-tight">400+ Engineers Trained</p>
-                <p className="text-xs text-slate-400 leading-relaxed">
+                <p className="font-display text-xl font-bold text-white uppercase tracking-tight">400+ Engineers Trained</p>
+                <p className="text-[11px] text-slate-400 leading-relaxed">
                   Bagus has directly mentored a generation of regional software developers into companies and districts in Indonesia.
                 </p>
               </div>
@@ -569,10 +569,10 @@ export default function App() {
                       <span className="font-mono text-[10px] text-white/60 bg-white/10 px-2.5 py-1 rounded-md uppercase tracking-wider font-semibold">
                         {exp.period}
                       </span>
-                      <h3 className="font-display font-bold text-lg text-white mt-2 uppercase tracking-tight">
+                      <h3 className="font-display font-bold text-base text-white mt-2 uppercase tracking-tight">
                         {exp.role}
                       </h3>
-                      <p className="font-sans text-xs text-brand-accent font-semibold">
+                      <p className="font-sans text-[11px] text-brand-accent font-semibold">
                         {exp.organization}
                       </p>
                     </div>
@@ -584,7 +584,7 @@ export default function App() {
                     </div>
                   </div>
 
-                  <p className="text-xs sm:text-sm text-slate-350 leading-relaxed font-sans">
+                  <p className="text-[11px] sm:text-xs text-slate-350 leading-relaxed font-sans">
                     {exp.description}
                   </p>
 
@@ -594,7 +594,7 @@ export default function App() {
                     </span>
                     <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
                       {exp.highlights.map((high, hIdx) => (
-                        <li key={hIdx} className="text-xs text-slate-300 font-sans flex items-start gap-2">
+                        <li key={hIdx} className="text-[11px] text-slate-300 font-sans flex items-start gap-2">
                           <Check className="w-3.5 h-3.5 text-brand-accent shrink-0 mt-0.5" />
                           <span>{high}</span>
                         </li>
@@ -617,16 +617,16 @@ export default function App() {
               <span className="font-mono text-[10px] text-brand-accent uppercase tracking-[0.2em] block font-bold">
                 PRACTICAL INSIGHTS
               </span>
-              <h2 className="font-display text-3xl sm:text-4xl font-bold text-white tracking-tight">
+              <h2 className="font-display text-2xl sm:text-3xl font-bold text-white tracking-tight">
                 Articles & Technical Tutorials
               </h2>
-              <p className="text-xs sm:text-sm text-slate-400 max-w-2xl font-sans">
+              <p className="text-[11px] sm:text-xs text-slate-400 max-w-2xl font-sans">
                 As a technical educator, I believe in publishing engineering decisions. These brief resources discuss resolving database lockups, syncing corporate adapters, and regional software setups.
               </p>
             </div>
             
             <div>
-              <span className="inline-flex items-center gap-1.5 text-slate-400 font-mono text-xs uppercase tracking-wider">
+              <span className="inline-flex items-center gap-1.5 text-slate-400 font-mono text-[11px] uppercase tracking-wider">
                 <BookOpen className="w-4 h-4 text-brand-accent" />
                 3 Published Guides
               </span>
@@ -645,11 +645,11 @@ export default function App() {
                     <span>{art.readTime}</span>
                   </div>
 
-                  <h3 className="font-display font-medium text-base text-white group-hover:text-brand-accent transition-colors mb-2 leading-snug">
+                  <h3 className="font-display font-medium text-sm text-white group-hover:text-brand-accent transition-colors mb-2 leading-snug">
                     {art.title}
                   </h3>
 
-                  <p className="text-xs text-slate-400 leading-relaxed font-sans mb-6 line-clamp-3">
+                  <p className="text-[11px] text-slate-400 leading-relaxed font-sans mb-6 line-clamp-3">
                     {art.excerpt}
                   </p>
                 </div>
@@ -682,10 +682,10 @@ export default function App() {
             <span className="font-mono text-[10px] text-brand-accent uppercase tracking-[0.2em] block font-bold">
               SYSTEM DELIVERABLES
             </span>
-            <h2 className="font-display text-3xl sm:text-4xl font-bold text-white tracking-tight">
+            <h2 className="font-display text-2xl sm:text-3xl font-bold text-white tracking-tight">
               Consulting Models & Solutions
             </h2>
-            <p className="text-xs sm:text-sm text-slate-400 leading-relaxed font-sans">
+            <p className="text-[11px] sm:text-xs text-slate-400 leading-relaxed font-sans">
               I operate purely on system customizers tailored around organizational size and legacy configurations. No abstract flat fees. Click any solution to start drafting your secure platform architecture brief.
             </p>
           </div>
@@ -698,10 +698,10 @@ export default function App() {
               >
                 <div className="absolute -bottom-12 -right-12 w-32 h-32 bg-brand-accent/5 rounded-full blur-3xl pointer-events-none" />
                 <div>
-                  <h3 className="font-display font-bold text-xl text-white mb-2 uppercase tracking-tight">
+                  <h3 className="font-display font-bold text-lg text-white mb-2 uppercase tracking-tight">
                     {srv.title}
                   </h3>
-                  <p className="text-xs sm:text-sm text-slate-350 leading-relaxed font-sans mb-6">
+                  <p className="text-[11px] sm:text-xs text-slate-350 leading-relaxed font-sans mb-6">
                     {srv.description}
                   </p>
 
@@ -723,7 +723,7 @@ export default function App() {
                       <span className="text-[9px] font-mono text-[#5d6880] uppercase tracking-widest block font-bold">
                         Ideal Partner Scale
                       </span>
-                      <p className="text-xs text-slate-300 font-sans mt-0.5">
+                      <p className="text-[11px] text-slate-300 font-sans mt-0.5">
                         {srv.idealFor}
                       </p>
                     </div>
@@ -740,7 +740,7 @@ export default function App() {
                     onClick={() => {
                       scrollToSection("consultation-hub");
                     }}
-                    className="w-full py-2.5 px-4 rounded-xl bg-white/5 hover:bg-brand-accent/10 border border-white/10 hover:border-brand-accent text-slate-300 hover:text-white font-mono text-xs tracking-wider uppercase transition-all flex items-center justify-center gap-1.5 cursor-pointer font-bold"
+                    className="w-full py-2.5 px-4 rounded-xl bg-white/5 hover:bg-brand-accent/10 border border-white/10 hover:border-brand-accent text-slate-300 hover:text-white font-mono text-[11px] tracking-wider uppercase transition-all flex items-center justify-center gap-1.5 cursor-pointer font-bold"
                   >
                     Select this model in Planner
                     <ChevronRight className="w-4 h-4" />
@@ -760,10 +760,10 @@ export default function App() {
             <span className="font-mono text-[10px] text-brand-accent uppercase tracking-[0.2em] block font-bold">
               ENGAGEMENT GATEWAY
             </span>
-            <h2 className="font-display text-3xl sm:text-4xl font-bold text-white tracking-tight">
+            <h2 className="font-display text-2xl sm:text-3xl font-bold text-white tracking-tight">
               Blueprint Consultation Terminal
             </h2>
-            <p className="text-xs sm:text-sm text-slate-400 leading-relaxed font-sans">
+            <p className="text-[11px] sm:text-xs text-slate-400 leading-relaxed font-sans">
               Formulate your project details inside the <strong>Blueprint Customizer</strong>, then synchronize it with our <strong>AI Twin Consultant</strong> to map immediate scopes. Let's start the design roadmap.
             </p>
           </div>
@@ -781,10 +781,10 @@ export default function App() {
                 <span className="font-mono text-[10px] text-brand-accent uppercase tracking-widest block mb-2">
                   DIRECT CONTACT INFO
                 </span>
-                <h3 className="font-display text-2xl font-bold text-white mb-4">
+                <h3 className="font-display text-xl font-bold text-white mb-4">
                   Let's Discuss Your Project
                 </h3>
-                <p className="text-xs sm:text-sm text-slate-400 leading-relaxed font-sans">
+                <p className="text-[11px] sm:text-xs text-slate-400 leading-relaxed font-sans">
                   Ready to draft a system blueprint or request an audit of your relational database? Send details of your requirements directly. I review individual solutions designs personally and will reach out with an engineering schematic outline.
                 </p>
               </div>
@@ -796,7 +796,7 @@ export default function App() {
                   </div>
                   <div>
                     <span className="text-[9px] font-mono text-[#5d6880] uppercase block font-bold">Primary Workspace Email</span>
-                    <span className="text-xs text-slate-200 font-semibold group-hover:text-brand-accent transition-colors">
+                    <span className="text-[11px] text-slate-200 font-semibold group-hover:text-brand-accent transition-colors">
                       bagusbatr@gmail.com
                     </span>
                   </div>
@@ -808,7 +808,7 @@ export default function App() {
                   </div>
                   <div>
                     <span className="text-[9px] font-mono text-[#5d6880] uppercase block font-bold">Regional Consultation Line</span>
-                    <span className="text-xs text-slate-200 font-semibold">
+                    <span className="text-[11px] text-slate-200 font-semibold">
                       Indonesia Region (GMT+7)
                     </span>
                   </div>
@@ -839,7 +839,7 @@ export default function App() {
                       value={contactForm.name}
                       onChange={handleFormChange}
                       placeholder="e.g. Director of Academics"
-                      className="w-full py-2.5 px-3 rounded-lg text-xs bg-[#0b1222] border border-white/10 focus:border-brand-accent text-white placeholder-slate-600 focus:outline-none"
+                      className="w-full py-2.5 px-3 rounded-lg text-[11px] bg-[#0b1222] border border-white/10 focus:border-brand-accent text-white placeholder-slate-600 focus:outline-none"
                     />
                   </div>
 
@@ -854,7 +854,7 @@ export default function App() {
                       value={contactForm.email}
                       onChange={handleFormChange}
                       placeholder="e.g. domain@school.edu"
-                      className="w-full py-2.5 px-3 rounded-lg text-xs bg-[#0b1222] border border-white/10 focus:border-brand-accent text-white placeholder-slate-600 focus:outline-none"
+                      className="w-full py-2.5 px-3 rounded-lg text-[11px] bg-[#0b1222] border border-white/10 focus:border-brand-accent text-white placeholder-slate-600 focus:outline-none"
                     />
                   </div>
                 </div>
@@ -870,7 +870,7 @@ export default function App() {
                       value={contactForm.company}
                       onChange={handleFormChange}
                       placeholder="e.g. Merdeka Academy Group"
-                      className="w-full py-2.5 px-3 rounded-lg text-xs bg-[#0b1222] border border-white/10 focus:border-brand-accent text-white placeholder-slate-600 focus:outline-none"
+                      className="w-full py-2.5 px-3 rounded-lg text-[11px] bg-[#0b1222] border border-white/10 focus:border-brand-accent text-white placeholder-slate-600 focus:outline-none"
                     />
                   </div>
 
@@ -882,7 +882,7 @@ export default function App() {
                       name="projectType"
                       value={contactForm.projectType}
                       onChange={handleFormChange}
-                      className="w-full py-2.5 px-3 rounded-lg text-xs bg-[#0b1222] border border-white/10 focus:border-brand-accent text-white focus:outline-none"
+                      className="w-full py-2.5 px-3 rounded-lg text-[11px] bg-[#0b1222] border border-white/10 focus:border-brand-accent text-white focus:outline-none"
                     >
                       <option value="Academic Portal (SIS)">Academic Portal (SIS)</option>
                       <option value="Village Civil Platform">Village Civil Platform</option>
@@ -903,7 +903,7 @@ export default function App() {
                     value={contactForm.message}
                     onChange={handleFormChange}
                     placeholder="Briefly state current database structures, SAP integration requirements, offline limitations, or timeline parameters..."
-                    className="w-full py-2.5 px-3 rounded-lg text-xs bg-[#0b1222] border border-white/10 focus:border-brand-accent text-white placeholder-slate-600 focus:outline-none resize-none"
+                    className="w-full py-2.5 px-3 rounded-lg text-[11px] bg-[#0b1222] border border-white/10 focus:border-brand-accent text-white placeholder-slate-600 focus:outline-none resize-none"
                   />
                 </div>
 
@@ -914,7 +914,7 @@ export default function App() {
                         initial={{ opacity: 0, scale: 0.95 }}
                         animate={{ opacity: 1, scale: 1 }}
                         exit={{ opacity: 0 }}
-                        className="py-3 px-4 bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 rounded-xl text-xs flex items-center gap-2"
+                        className="py-3 px-4 bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 rounded-xl text-[11px] flex items-center gap-2"
                       >
                         <CheckCircle className="w-4 h-4 shrink-0" />
                         <span>Thank you! Your solutions design brief is successfully logged. Bagus Batra will evaluate your schemas and contact you within 24 hours.</span>
@@ -922,7 +922,7 @@ export default function App() {
                     ) : (
                       <button
                         type="submit"
-                        className="w-full py-3 px-4 rounded-xl bg-brand-accent hover:bg-brand-accent/95 text-white font-mono text-xs tracking-wider uppercase font-semibold transition-all flex items-center justify-center gap-2 cursor-pointer shadow-md"
+                        className="w-full py-3 px-4 rounded-xl bg-brand-accent hover:bg-brand-accent/95 text-white font-mono text-[11px] tracking-wider uppercase font-semibold transition-all flex items-center justify-center gap-2 cursor-pointer shadow-md"
                       >
                         <Send className="w-4 h-4" />
                         Dispatch Solutions Proposal
@@ -939,14 +939,14 @@ export default function App() {
 
       {/* Futuristic footer rail */}
       <footer className="border-t border-white/10 py-8 bg-[#0b1222] mt-16 relative z-10">
-        <div className="w-full max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="w-full max-w-7xl mx-auto px-8 sm:px-14 lg:px-28 xl:px-40 2xl:px-48 flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-3">
             <span className="text-[11px] font-mono text-slate-500 uppercase tracking-widest font-bold">
               BAGUS BATRA PORTFOLIO PLATFORM • EST. 2026
             </span>
           </div>
 
-          <div className="flex items-center gap-6 text-xs text-slate-500">
+          <div className="flex items-center gap-6 text-[11px] text-slate-500">
             <span className="font-mono text-[9px] text-[#5d6880] uppercase tracking-wider font-bold">
               COORDINATES: CENTRAL INDONESIA • GMT+7
             </span>
