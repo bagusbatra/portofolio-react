@@ -1,65 +1,38 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect, lazy, Suspense } from "react";
 import ProjectsPage from "./components/ProjectsPage";
 import BackgroundDecor from "./components/BackgroundDecor";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import HeroSection from "./components/sections/HeroSection";
-import ProblemsSection from "./components/sections/ProblemsSection";
-import WorkSection from "./components/sections/WorkSection";
-import ExperienceSection from "./components/sections/ExperienceSection";
-import KnowledgeSection from "./components/sections/KnowledgeSection";
-import ServicesSection from "./components/sections/ServicesSection";
-import ConsultationSection from "./components/sections/ConsultationSection";
+import ErrorBoundary from "./components/ErrorBoundary";
+import SEOHead from "./components/SEOHead";
+import NotFoundPage from "./components/NotFoundPage";
+import SectionSkeleton from "./components/SectionSkeleton";
 import { NAV_ITEMS } from "./constants";
+
+const HeroSection = lazy(() => import("./components/sections/HeroSection"));
+const ProblemsSection = lazy(() => import("./components/sections/ProblemsSection"));
+const WorkSection = lazy(() => import("./components/sections/WorkSection"));
+const ExperienceSection = lazy(() => import("./components/sections/ExperienceSection"));
+const KnowledgeSection = lazy(() => import("./components/sections/KnowledgeSection"));
+const ServicesSection = lazy(() => import("./components/sections/ServicesSection"));
+const ConsultationSection = lazy(() => import("./components/sections/ConsultationSection"));
+
+const VALID_ROUTES = ["/", "/projects"];
 
 export default function App() {
   const [route, setRoute] = useState<string>(() => window.location.pathname);
   const [activeTab, setActiveTab] = useState<string>("village-info-system");
   const [activeSection, setActiveSection] = useState<string>("ecosystem");
-  const [formSubmitted, setFormSubmitted] = useState<boolean>(false);
-  const [contactForm, setContactForm] = useState({
-    name: "",
-    email: "",
-    company: "",
-    projectType: "Academic Portal (SIS)",
-    message: ""
-  });
 
-  const handleFormChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    setContactForm({
-      ...contactForm,
-      [e.target.name]: e.target.value
-    });
-  };
-
-  const handleFormSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Simulate real database dispatch or webhook notification and show feedback
-    setFormSubmitted(true);
-    setTimeout(() => {
-      setFormSubmitted(false);
-      setContactForm({
-        name: "",
-        email: "",
-        company: "",
-        projectType: "Academic Portal (SIS)",
-        message: ""
-      });
-    }, 4000);
-  };
-
-  // Simple client-side navigation between the home page and the project archive
   const navigateTo = (path: string) => {
     window.history.pushState({}, "", path);
     setRoute(path);
     window.scrollTo({ top: 0 });
   };
 
-  // Scroll helper
   const scrollToSection = (id: string) => {
     if (route !== "/") {
       navigateTo("/");
-      // Allow the home page to mount before scrolling to the target section
       requestAnimationFrame(() => {
         requestAnimationFrame(() => {
           const el = document.getElementById(id);
@@ -80,12 +53,18 @@ export default function App() {
   };
 
   useEffect(() => {
-    const onPopState = () => setRoute(window.location.pathname);
+    const onPopState = () => {
+      const path = window.location.pathname;
+      if (!VALID_ROUTES.includes(path)) {
+        navigateTo("/");
+      } else {
+        setRoute(path);
+      }
+    };
     window.addEventListener("popstate", onPopState);
     return () => window.removeEventListener("popstate", onPopState);
   }, []);
 
-  // Highlight the nav link of whichever section is currently in view
   useEffect(() => {
     if (route !== "/") return;
 
@@ -111,43 +90,85 @@ export default function App() {
     return () => observer.disconnect();
   }, [route]);
 
+  if (!VALID_ROUTES.includes(route)) {
+    return <NotFoundPage onBack={() => navigateTo("/")} />;
+  }
+
   if (route === "/projects") {
     return (
-      <ProjectsPage
-        onBack={() => navigateTo("/")}
-        onConsult={() => scrollToSection("consultation-hub")}
-      />
+      <>
+        <SEOHead
+          title="All Projects"
+          description="Browse a complete portfolio of delivered systems across education, government, enterprise, healthcare, and e-commerce sectors."
+          canonicalUrl="https://bagusbatra.dev/projects"
+        />
+        <ErrorBoundary>
+          <ProjectsPage
+            onBack={() => navigateTo("/")}
+            onConsult={() => { window.location.href = "mailto:bagusbatr@gmail.com"; }}
+          />
+        </ErrorBoundary>
+      </>
     );
   }
 
   return (
-    <div className="min-h-screen bg-brand-dark-base selection:bg-brand-accent selection:text-white relative">
-      <BackgroundDecor />
+    <>
+      <SEOHead
+        title="Systems Architect & Full Stack Developer"
+        description="Senior IT Architect and Full Stack Developer specializing in Laravel, React, MySQL, SAP integration, and custom information systems across Indonesia."
+        canonicalUrl="https://bagusbatra.dev"
+      />
+      <div className="min-h-screen bg-brand-dark-base selection:bg-brand-accent selection:text-white relative">
+        <BackgroundDecor />
 
-      <Header activeSection={activeSection} scrollToSection={scrollToSection} navigateTo={navigateTo} />
+        <Header activeSection={activeSection} scrollToSection={scrollToSection} navigateTo={navigateTo} />
 
-      {/* Main Container */}
-      <main className="relative z-10 w-full max-w-7xl mx-auto px-8 sm:px-14 lg:px-28 xl:px-40 2xl:px-48 space-y-32 py-16">
-        <HeroSection scrollToSection={scrollToSection} />
-        <ProblemsSection />
-        <WorkSection
-          activeTab={activeTab}
-          setActiveTab={setActiveTab}
-          scrollToSection={scrollToSection}
-          navigateTo={navigateTo}
-        />
-        <ExperienceSection />
-        <KnowledgeSection scrollToSection={scrollToSection} />
-        <ServicesSection scrollToSection={scrollToSection} />
-        <ConsultationSection
-          contactForm={contactForm}
-          formSubmitted={formSubmitted}
-          handleFormChange={handleFormChange}
-          handleFormSubmit={handleFormSubmit}
-        />
-      </main>
+        <main className="relative z-10 w-full max-w-7xl mx-auto px-8 sm:px-14 lg:px-28 xl:px-40 2xl:px-48 space-y-32 py-16">
+          <ErrorBoundary>
+            <Suspense fallback={<SectionSkeleton />}>
+              <HeroSection scrollToSection={scrollToSection} />
+            </Suspense>
+          </ErrorBoundary>
+          <ErrorBoundary>
+            <Suspense fallback={<SectionSkeleton />}>
+              <ProblemsSection />
+            </Suspense>
+          </ErrorBoundary>
+          <ErrorBoundary>
+            <Suspense fallback={<SectionSkeleton />}>
+              <WorkSection
+                activeTab={activeTab}
+                setActiveTab={setActiveTab}
+                navigateTo={navigateTo}
+              />
+            </Suspense>
+          </ErrorBoundary>
+          <ErrorBoundary>
+            <Suspense fallback={<SectionSkeleton />}>
+              <ExperienceSection />
+            </Suspense>
+          </ErrorBoundary>
+          <ErrorBoundary>
+            <Suspense fallback={<SectionSkeleton />}>
+              <KnowledgeSection />
+            </Suspense>
+          </ErrorBoundary>
+          <ErrorBoundary>
+            <Suspense fallback={<SectionSkeleton />}>
+              <ServicesSection />
+            </Suspense>
+          </ErrorBoundary>
+        </main>
 
-      <Footer />
-    </div>
+        <ErrorBoundary>
+          <Suspense fallback={<SectionSkeleton />}>
+            <ConsultationSection />
+          </Suspense>
+        </ErrorBoundary>
+
+        <Footer />
+      </div>
+    </>
   );
 }

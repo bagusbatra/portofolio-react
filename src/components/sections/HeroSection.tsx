@@ -1,5 +1,5 @@
 import { ArrowRight } from "lucide-react";
-import ProjectEcosystem from "../ProjectEcosystem";
+import PacmanGame from "../PacmanGame";
 
 interface HeroSectionProps {
   scrollToSection: (id: string) => void;
@@ -25,7 +25,7 @@ export default function HeroSection({ scrollToSection }: HeroSectionProps) {
               onClick={() => scrollToSection("consultation-hub")}
               className="py-3 px-6 rounded-xl bg-brand-accent text-white font-mono text-[11px] tracking-wider uppercase font-semibold hover:bg-brand-accent/90 transition-all flex items-center gap-2 cursor-pointer shadow-lg shadow-brand-accent-glow"
             >
-              Configure Solutions Blueprint
+              Get In Touch
               <ArrowRight className="w-4 h-4" />
             </button>
             <button
@@ -68,9 +68,9 @@ export default function HeroSection({ scrollToSection }: HeroSectionProps) {
         </div>
       </div>
 
-      {/* Interactive Project Ecosystem Element */}
+      {/* Arcade Break */}
       <div className="pt-8">
-        <ProjectEcosystem />
+        <PacmanGame />
       </div>
     </section>
   );

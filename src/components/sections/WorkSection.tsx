@@ -5,11 +5,10 @@ import { PROJECTS } from "../../data";
 interface WorkSectionProps {
   activeTab: string;
   setActiveTab: (id: string) => void;
-  scrollToSection: (id: string) => void;
   navigateTo: (path: string) => void;
 }
 
-export default function WorkSection({ activeTab, setActiveTab, scrollToSection, navigateTo }: WorkSectionProps) {
+export default function WorkSection({ activeTab, setActiveTab, navigateTo }: WorkSectionProps) {
   const selectedFeaturedProject = PROJECTS.find((p) => p.id === activeTab) || PROJECTS[0];
 
   return (
@@ -132,13 +131,13 @@ export default function WorkSection({ activeTab, setActiveTab, scrollToSection, 
                 <span className="font-mono text-[10px] text-slate-500">
                   Need a similar system built?
                 </span>
-                <button
-                  onClick={() => scrollToSection("consultation-hub")}
+                <a
+                  href="mailto:bagusbatr@gmail.com"
                   className="font-mono text-[11px] text-brand-accent hover:text-white flex items-center gap-1.5 group transition-all"
                 >
                   Discuss project system architecture
                   <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                </button>
+                </a>
               </div>
             </div>
 

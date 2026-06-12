@@ -40,18 +40,3 @@ export interface ExperienceNode {
   highlights: string[];
 }
 
-export interface ChatMessage {
-  sender: "user" | "twin";
-  text: string;
-  timestamp: string;
-  isFormSuggestion?: boolean;
-  projectBrief?: any;
-}
-
-export interface ContactForm {
-  name: string;
-  email: string;
-  company: string;
-  projectType: string;
-  message: string;
-}

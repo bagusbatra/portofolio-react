@@ -1,11 +1,7 @@
 import { ChevronRight } from "lucide-react";
 import { SERVICES } from "../../data";
 
-interface ServicesSectionProps {
-  scrollToSection: (id: string) => void;
-}
-
-export default function ServicesSection({ scrollToSection }: ServicesSectionProps) {
+export default function ServicesSection() {
   return (
     <section id="services" className="space-y-12">
       <div className="text-center max-w-3xl mx-auto space-y-3">
@@ -66,15 +62,13 @@ export default function ServicesSection({ scrollToSection }: ServicesSectionProp
                 {srv.architectureHighlight}
               </div>
 
-              <button
-                onClick={() => {
-                  scrollToSection("consultation-hub");
-                }}
+              <a
+                href="mailto:bagusbatr@gmail.com"
                 className="w-full py-2.5 px-4 rounded-xl bg-white/5 hover:bg-brand-accent/10 border border-white/10 hover:border-brand-accent text-slate-300 hover:text-white font-mono text-[11px] tracking-wider uppercase transition-all flex items-center justify-center gap-1.5 cursor-pointer font-bold"
               >
-                Select this model in Planner
+                Discuss this solution
                 <ChevronRight className="w-4 h-4" />
-              </button>
+              </a>
             </div>
           </div>
         ))}

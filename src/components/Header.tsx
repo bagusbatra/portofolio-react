@@ -51,9 +51,9 @@ export default function Header({ activeSection, scrollToSection, navigateTo }: H
         <div>
           <button
             onClick={() => scrollToSection("consultation-hub")}
-            className="py-1.5 px-4 rounded-full bg-white text-black hover:bg-neutral-200 text-[11px] font-mono tracking-widest uppercase font-semibold transition-all cursor-pointer"
+            className="py-1.5 px-4 rounded-full bg-white text-black hover:bg-neutral-200 text-[11px] font-mono tracking-widest uppercase font-semibold transition-all cursor-pointer inline-block"
           >
-            Consultation
+            Contact
           </button>
         </div>
       </div>

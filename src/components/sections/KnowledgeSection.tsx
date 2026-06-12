@@ -1,11 +1,7 @@
 import { ArrowUpRight, BookOpen } from "lucide-react";
 import { ARTICLES } from "../../data";
 
-interface KnowledgeSectionProps {
-  scrollToSection: (id: string) => void;
-}
-
-export default function KnowledgeSection({ scrollToSection }: KnowledgeSectionProps) {
+export default function KnowledgeSection() {
   return (
     <section id="knowledge" className="space-y-12">
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
@@ -54,15 +50,13 @@ export default function KnowledgeSection({ scrollToSection }: KnowledgeSectionPr
               <span className="text-[10px] font-mono text-[#5d6880]">{art.date}</span>
 
               {/* Simple Expand or discuss anchor */}
-              <button
-                onClick={() => {
-                  scrollToSection("consultation-hub");
-                }}
+              <a
+                href="mailto:bagusbatr@gmail.com"
                 className="text-[11px] font-mono text-brand-accent hover:text-white flex items-center gap-1 cursor-pointer transition-colors uppercase tracking-wider font-semibold"
               >
-                Discuss in twin chat
+                Discuss this topic
                 <ArrowUpRight className="w-3.5 h-3.5" />
-              </button>
+              </a>
             </div>
           </div>
         ))}
