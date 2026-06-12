@@ -1,5 +1,5 @@
 import { ArrowRight } from "lucide-react";
-import PacmanGame from "../PacmanGame";
+import DinoGame from "../DinoGame";
 
 interface HeroSectionProps {
   scrollToSection: (id: string) => void;
@@ -70,7 +70,7 @@ export default function HeroSection({ scrollToSection }: HeroSectionProps) {
 
       {/* Arcade Break */}
       <div className="pt-8">
-        <PacmanGame />
+        <DinoGame />
       </div>
     </section>
   );
